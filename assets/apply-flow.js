@@ -223,13 +223,9 @@
       if (h) h.textContent = "You're shortlisted for the next step.";
       if (p) p.textContent = 'Complete your application and pay the ₹1,500 application fee to book your entrance exam. Our admissions team will also call you within 24 hours.';
       if (nextUrl) { buttons += '<a class="qaf2-btn primary" href="' + esc(nextUrl) + '" target="_blank" rel="noopener" style="margin-left:0">Complete my application</a>'; if (small) small.textContent = "We've also sent this link to your WhatsApp."; }
-    } else if (tier === 'nurture') {
-      if (h) h.textContent = 'Thank you for your interest in QURA.';
-      if (p) p.textContent = 'QURA is a full-time, in-person programme in Chennai, taught in English. From your answers it may not be the right fit right now — we’ll keep you posted about future intakes.';
-      if (nextUrl) buttons += '<a class="qaf2-btn primary" href="' + esc(nextUrl) + '" target="_blank" rel="noopener" style="margin-left:0">See our online programmes</a>';
     } else {
       if (h) h.textContent = 'Application received.';
-      if (p) p.textContent = 'Our admissions team will call you within 2 working days. Keep an eye on WhatsApp for a message from QURA.';
+      if (p) p.textContent = 'Thank you for applying to QURA. Our team will reach out to you within the next 24 hours.';
     }
     if ((d2.intent || 'apply') === 'prospectus') buttons += '<a class="qaf2-btn ghost" href="' + PROSPECTUS + '" target="_blank" rel="noopener">Download the prospectus</a>';
     buttons += '<a class="qaf2-btn ghost" href="/">Back to QURA</a>';
