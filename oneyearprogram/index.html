@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Meta Pixel + Google Ads · same tags as the main site -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1542599967233799');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1542599967233799&ev=PageView&noscript=1"/></noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18125399100"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-18125399100',{allow_enhanced_conversions:false});</script>
+
+<title>One-Year Filmmaking Programme, QURA Film Academy, Chennai</title>
+<meta name="description" content="Eleven months. Every craft of cinema. Six films, a 30-acre film city, and an advisory board of the people who built Indian cinema. Apply for the Class of 2027 · deadline November 30.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://qurafilm-astro.vercel.app" crossorigin><link rel="dns-prefetch" href="https://d8j0ntlcm91z4.cloudfront.net">
+<link rel="preload" as="image" href="https://qurafilm-astro.vercel.app/og/hero-poster.jpg" fetchpriority="high">
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+/* ===== landing-page overrides, everything else inherits the QURA V3 system (site.css) ===== */
+
+/* hero: copy left · lead form right, full-size type, no side rails */
+.hero.lp{height:auto;min-height:100svh;padding:150px 0 96px}
+.lp-grid{position:relative;z-index:3;width:100%;max-width:1280px;margin:0 auto;padding:0 48px;
+  display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.lp-grid .kick{font-family:var(--helv);text-transform:uppercase;letter-spacing:.05em;font-size:12px;color:var(--gold);font-weight:700}
+.lp-grid h1{font-family:var(--serif);font-weight:600;font-size:clamp(42px,4.9vw,72px);line-height:1.04;letter-spacing:-.025em;margin:22px 0 0;color:var(--bone)}
+.lp-grid h1 em{font-style:normal;color:var(--gold-soft)}
+.lp-grid .sub{font-size:17.5px;color:var(--bone-dim);margin-top:24px;max-width:520px;line-height:1.7}
+
+/* stat strip, centred */
+.lp-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:42px;border:1px solid var(--gold-line);max-width:640px}
+.lp-stats div{padding:20px 12px;border-right:1px solid var(--gold-line);min-width:0;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:flex-start}
+.lp-stats div:last-child{border-right:0}
+.lp-stats .n{font-family:var(--helv);font-weight:700;font-size:30px;color:var(--gold-soft);line-height:1}
+.lp-stats .l{font-family:var(--helv);text-transform:uppercase;letter-spacing:.05em;font-size:9.5px;color:var(--bone-dim);margin-top:8px;line-height:1.5}
+
+/* the lead card */
+.lead-card{position:relative;background:rgba(10,10,11,.74);border:1px solid var(--gold-line);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:36px 34px}
+.lead-card .bk{border-color:var(--gold)}
+.lead-card h3{font-family:var(--serif);font-weight:600;font-size:28px;color:var(--bone);line-height:1.15;margin-top:12px}
+.lead-card h3 em{font-style:normal;color:var(--gold-soft)}
+.lead-card .lsub{font-size:13px;color:var(--bone-dim);margin:10px 0 24px;line-height:1.6}
+.lead-card .lsub b{color:var(--gold-soft);font-weight:600}
+.lead-card .submit{justify-self:stretch;justify-content:center;width:100%;text-decoration:none}
+
+/* masters, six compact title-cards, one row */
+.lp-masters{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:50px}
+.lp-masters .tcard{aspect-ratio:3/4.4}
+.lp-masters .tcard h4{font-size:17px;margin:5px 0 8px}
+.lp-masters .tcard .role{font-size:8.5px}
+.lp-masters .tcard .body{padding:0 14px 16px}
+.lp-masters .tcard .rule{width:24px;margin-bottom:8px}
+.lp-masters .tcard .acc{font-size:8.5px;margin-top:0;line-height:1.5}
+.lp-masters .tcard .pill{display:none}
+@media(max-width:1100px){.lp-masters{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.lp-masters{grid-template-columns:repeat(2,1fr)}.lp-masters .tcard{aspect-ratio:3/4}}
+
+/* four crafts */
+.lp-crafts{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:50px;border:1px solid var(--line-ink);background:rgba(255,255,255,.35)}
+.lp-crafts .c{padding:34px 28px;border-right:1px solid var(--line-ink)}
+.lp-crafts .c:last-child{border-right:0}
+.lp-crafts .ix{font-family:var(--helv);text-transform:uppercase;letter-spacing:.05em;font-size:11px;font-weight:700;color:var(--brass);margin-bottom:14px}
+.lp-crafts h4{font-family:var(--serif);font-weight:600;font-size:23px;color:var(--ink);margin-bottom:8px}
+.lp-crafts p{font-size:13px;color:var(--ink-dim);line-height:1.6}
+@media(max-width:900px){.lp-crafts{grid-template-columns:repeat(2,1fr)}.lp-crafts .c:nth-child(2){border-right:0}.lp-crafts .c:nth-child(-n+2){border-bottom:1px solid var(--line-ink)}}
+@media(max-width:520px){.lp-crafts{grid-template-columns:1fr}.lp-crafts .c{border-right:0;border-bottom:1px solid var(--line-ink)}.lp-crafts .c:last-child{border-bottom:0}}
+
+/* six films, brick courses: 3 → 2 wide → 1 full-width finale */
+.lp-films{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:50px}
+.lp-film{position:relative;border:1px solid var(--line-ink);background:rgba(255,255,255,.4);padding:30px 26px;transition:.3s;grid-column:span 2}
+.lp-film:nth-child(4),.lp-film:nth-child(5){grid-column:span 3}
+.lp-film:nth-child(6){grid-column:span 6;background:var(--black);border-color:var(--gold-line)}
+.lp-film:hover{border-color:rgba(123,47,190,.5);transform:translateY(-4px)}
+.lp-film .when{font-size:10.5px;font-family:var(--helv);text-transform:uppercase;letter-spacing:.14em;font-weight:700;color:var(--brass);margin-bottom:12px}
+.lp-film h4{font-family:var(--serif);font-weight:600;font-size:22px;color:var(--ink);margin-bottom:8px}
+.lp-film p{font-size:13px;color:var(--ink-dim);line-height:1.65;max-width:60ch}
+.lp-film .fx{position:absolute;top:22px;right:24px;font-family:var(--helv);font-weight:800;font-size:34px;color:rgba(26,23,20,.12);line-height:1}
+.lp-film:nth-child(6) .when{color:var(--gold)}
+.lp-film:nth-child(6) h4{color:var(--bone);font-size:26px}
+.lp-film:nth-child(6) p{color:var(--bone-dim)}
+.lp-film:nth-child(6) .fx{color:rgba(244,241,234,.14)}
+@media(max-width:900px){.lp-film,.lp-film:nth-child(4),.lp-film:nth-child(5){grid-column:span 3}.lp-film:nth-child(6){grid-column:span 6}}
+@media(max-width:560px){.lp-film,.lp-film:nth-child(4),.lp-film:nth-child(5),.lp-film:nth-child(6){grid-column:span 6}}
+
+/* features */
+.lp-feats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:50px}
+.lp-feat{border:1px solid var(--line-ink);background:rgba(255,255,255,.4);padding:24px 22px;transition:.3s}
+.lp-feat:hover{border-color:rgba(123,47,190,.4)}
+.lp-feat h4{font-family:var(--serif);font-weight:600;font-size:19px;color:var(--ink);margin-bottom:7px}
+.lp-feat h4 span{color:var(--brass)}
+.lp-feat p{font-size:12.5px;color:var(--ink-dim);line-height:1.6}
+@media(max-width:1000px){.lp-feats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.lp-feats{grid-template-columns:1fr}}
+
+/* career roles */
+.lp-roles{display:grid;grid-template-columns:repeat(8,1fr);gap:0;margin-top:50px;border:1px solid var(--line-ink);background:rgba(255,255,255,.35)}
+.rolechip{padding:26px 10px;text-align:center;border-right:1px solid var(--line-ink)}
+.rolechip:last-child{border-right:0}
+.rolechip .ic{width:22px;height:22px;margin:0 auto 12px;color:var(--brass)}
+.rolechip .nm{font-family:var(--serif);font-weight:600;font-size:15px;color:var(--ink);line-height:1.25}
+@media(max-width:1000px){.lp-roles{grid-template-columns:repeat(4,1fr)}.rolechip:nth-child(4){border-right:0}.rolechip:nth-child(-n+4){border-bottom:1px solid var(--line-ink)}}
+@media(max-width:560px){.lp-roles{grid-template-columns:repeat(2,1fr)}.rolechip{border-right:1px solid var(--line-ink)}.rolechip:nth-child(2n){border-right:0}.rolechip:nth-child(-n+6){border-bottom:1px solid var(--line-ink)}}
+
+/* FAQ */
+.lp-faq{margin-top:44px;border-top:1px solid var(--line-ink);columns:2;column-gap:56px}
+.lp-faq details{border-bottom:1px solid var(--line-ink);break-inside:avoid}
+.lp-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:18px;
+  padding:20px 0;font-family:var(--helv);font-weight:600;font-size:15px;color:var(--ink)}
+.lp-faq summary::-webkit-details-marker{display:none}
+.lp-faq summary .pm{font-family:var(--helv);font-weight:400;font-size:20px;color:var(--brass);flex-shrink:0;transition:.25s}
+.lp-faq details[open] summary .pm{transform:rotate(45deg)}
+.lp-faq .a{padding:0 0 20px;font-size:13.5px;color:var(--ink-dim);line-height:1.7;max-width:60ch}
+@media(max-width:900px){.lp-faq{columns:1}}
+
+/* footer socials */
+.ft-social{display:flex;gap:12px;margin-top:18px}
+.ft-social a{width:36px;height:36px;border:1px solid var(--line-ink);display:flex;align-items:center;justify-content:center;color:var(--ink-dim);transition:.25s}
+.ft-social a:hover{border-color:var(--brass);color:var(--brass)}
+.ft-social svg{width:16px;height:16px}
+
+/* simplified nav */
+header.nav.lp-nav nav a.link{display:none}
+@media(min-width:761px){header.nav.lp-nav nav a.link.keep{display:inline-block}}
+
+/* responsive hero */
+@media(max-width:1000px){
+  .lp-grid{grid-template-columns:1fr;gap:48px;padding:0 24px}
+  .hero.lp{padding:120px 0 72px}
+  .lp-grid h1{font-size:clamp(38px,9vw,56px)}
+}
+@media(max-width:760px){
+  .lp-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lp-stats div:nth-child(2){border-right:0}
+  .lp-stats div:nth-child(-n+2){border-bottom:1px solid var(--gold-line)}
+  .lead-card{padding:28px 22px}
+}
+</style>
+</head>
+<body>
+
+  <!-- HEADER, no off-page links: one page, one goal -->
+  <header class="nav lp-nav">
+    <a href="#top" class="logo"><img loading="eager" fetchpriority="high" src="https://qurafilm-astro.vercel.app/_astro/hero-logo.DUnMKrzy_Z1m6aLB.webp" alt="QURA Film Academy"></a>
+    <nav>
+      <a href="#masters" class="link keep">The Masters</a>
+      <a href="#films" class="link keep">Six Films</a>
+      <a href="#faq" class="link keep">FAQ</a>
+      <a href="/apply/?intent=apply" data-gate="apply"><span class="nav-deadline">Deadline · Nov 30</span><span class="nav-apply">Apply Now</span></a>
+    </nav>
+  </header>
+
+  <!-- HERO, looping film + lead form -->
+  <section class="hero lp" id="top">
+    <div class="bg"><video autoplay loop muted playsinline preload="metadata" poster="https://qurafilm-astro.vercel.app/og/hero-poster.jpg"><source src="https://qurafilm-astro.vercel.app/hero-video.mp4" type="video/mp4"></video></div>
+    <div class="lb t"></div><div class="lb b"></div>
+    <div class="lp-grid">
+      <div>
+        <p class="kick">One-Year Filmmaking Programme · Chennai · Class of 2027</p>
+        <h1>India's only school for the <em>complete</em> filmmaker.</h1>
+        <p class="sub">Eleven months. Every craft of cinema. A film city, a faculty of working professionals, and an advisory board of the people who built Indian cinema.</p>
+        <div class="lp-stats">
+          <div><div class="n">11</div><div class="l">Months</div></div>
+          <div><div class="n">6</div><div class="l">Films / Student</div></div>
+          <div><div class="n">1:3</div><div class="l">Faculty Ratio</div></div>
+          <div><div class="n">30</div><div class="l">Acre Film City</div></div>
+        </div>
+        <div style="margin-top:30px"><a href="/QURA-Film-Academy-Prospectus-2026-27.pdf" class="btn ghost" data-gate="prospectus" data-file="/QURA-Film-Academy-Prospectus-2026-27.pdf">Download the Prospectus</a></div>
+      </div>
+
+      <div class="lead-card">
+        <span class="bk tl"></span><span class="bk br"></span>
+        <span class="credit">Applications Open · Limited Seats · Deadline Nov 30</span>
+        <h3>Begin your <em>application</em>.</h3>
+        <p class="lsub">A short, guided application — built craft by craft. <b>Our admissions team calls you back within 24 hours</b> to take you through the next steps.</p>
+        <a class="btn submit" data-gate="apply" href="/apply/?intent=apply"><span class="bk tl"></span><span class="bk br"></span>▶ &nbsp;Begin your application</a>
+        <p class="note">Takes about 3 minutes · a guided, multi-step application.</p><h4>Application received.</h4><p>Our admissions team will call you within 24 hours to take you through the next steps, fee, interview and enrolment.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE MASTERS, all six, one row -->
+  <section id="masters">
+    <div class="wrap rv">
+      <span class="credit">01 · The Masters · Advisory Board</span>
+      <h2 class="title">The people who built Indian cinema.<br>Shaping how you'll <em>learn</em> it.</h2>
+      <p class="lede">Not endorsers, the directors, cinematographers and editors whose films a billion people grew up on, guiding the curriculum you'll train inside.</p>
+      <div class="lp-masters">
+        <div class="tcard"><img loading="lazy" decoding="async" src="/assets/advisory-kamal.jpg" alt="Kamal Haasan"><div class="grad"></div><span class="bk tl"></span><span class="bk br"></span>
+          <div class="body"><div class="role">Actor · Filmmaker</div><h4>Kamal Haasan</h4><div class="rule"></div><div class="work"><span class="acc">4 National Awards · Padma Bhushan</span></div></div></div>
+        <div class="tcard"><img loading="lazy" decoding="async" src="/assets/advisory-mani.jpg" alt="Mani Ratnam"><div class="grad"></div><span class="bk tl"></span><span class="bk br"></span>
+          <div class="body"><div class="role">Director</div><h4>Mani Ratnam</h4><div class="rule"></div><div class="work"><span class="acc">7 National Awards · Padma Shri</span></div></div></div>
+        <div class="tcard"><img loading="lazy" decoding="async" src="/assets/advisory-pcsreeram.jpg" alt="P. C. Sreeram"><div class="grad"></div><span class="bk tl"></span><span class="bk br"></span>
+          <div class="body"><div class="role">Cinematographer · ISC</div><h4>P. C. Sreeram</h4><div class="rule"></div><div class="work"><span class="acc">National Award · President, Qube Cinema</span></div></div></div>
+        <div class="tcard"><img loading="lazy" decoding="async" src="/assets/advisory-sreekar.jpg" alt="A. Sreekar Prasad"><div class="grad"></div><span class="bk tl"></span><span class="bk br"></span>
+          <div class="body"><div class="role">Editor</div><h4>A. Sreekar Prasad</h4><div class="rule"></div><div class="work"><span class="acc">9 National Awards · Oscar Academy Member</span></div></div></div>
+        <div class="tcard"><img loading="lazy" decoding="async" src="/assets/advisory-jayendra.jpg" alt="Jayendra Panchapakesan"><div class="grad"></div><span class="bk tl"></span><span class="bk br"></span>
+          <div class="body"><div class="role">Filmmaker</div><h4>Jayendra Panchapakesan</h4><div class="rule"></div><div class="work"><span class="acc">Co-Founder, Qube Cinema</span></div></div></div>
+        <div class="tcard"><img loading="lazy" decoding="async" src="/assets/advisory-senthil.jpg" alt="Senthil Kumar"><div class="grad"></div><span class="bk tl"></span><span class="bk br"></span>
+          <div class="body"><div class="role">Technologist</div><h4>Senthil Kumar</h4><div class="rule"></div><div class="work"><span class="acc">Co-Founder, Qube Cinema · Oscar Academy Member</span></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER, with photo -->
+  <section id="founder">
+    <div class="wrap rv">
+      <span class="credit">02 · From the Founder</span>
+      <div class="founder">
+        <div class="pic"><span class="bk tl"></span><span class="bk br"></span><img loading="lazy" decoding="async" src="https://d8j0ntlcm91z4.cloudfront.net/user_39Kz2J1kPphdRpSVuoySq24BVf2/hf_20260629_112812_fb8cdcf1-8601-44f5-9051-a1eca9778f6b.png" alt="Lata Murugan, Founder"></div>
+        <div>
+          <blockquote>"Students graduate knowing <b>one craft</b>, but the industry needs people who understand <b>all of them</b>. The gap has never been wider. QURA is what I would have wanted at twenty-two."</blockquote>
+          <div class="who"><b>Lata Murugan</b><br>Founder, QURA Film Academy<br>Former Head of Direction, L.V. Prasad Film &amp; TV Academy<br>Granddaughter of A. V. Meiyappan, founder of AVM Studios</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUR CRAFTS -->
+  <section id="crafts">
+    <div class="wrap rv">
+      <span class="credit">03 · The Curriculum · Four Crafts</span>
+      <h2 class="title">Four crafts. One <em>complete</em> filmmaker.</h2>
+      <p class="lede">Theory in the morning, a real set in the afternoon, beside industry-seasoned faculty, on real productions, never simulations.</p>
+      <div class="lp-crafts">
+        <div class="c"><div class="ix">01 · Writing</div><h4>Screenwriting</h4><p>Structure, story and dialogue, the blueprint of every film you'll make.</p></div>
+        <div class="c"><div class="ix">02 · Direction</div><h4>Direction</h4><p>Performance, blocking and visual storytelling, turning the page into image.</p></div>
+        <div class="c"><div class="ix">03 · Camera</div><h4>Cinematography</h4><p>Camera, light, lens and colour, on professional equipment from week one.</p></div>
+        <div class="c"><div class="ix">04 · The Cut</div><h4>Editing &amp; Post</h4><p>Assembly, sound, DI and delivery, finish films to theatrical standard.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIX FILMS, brick courses -->
+  <section id="films">
+    <div class="wrap rv">
+      <span class="credit">04 · The Making · Six Films in Eleven Months</span>
+      <h2 class="title">You don't study films here.<br>You <em>make</em> them.</h2>
+      <p class="lede">Every student completes six films on professional equipment, each course of work a step up in scale, craft and ambition.</p>
+      <div class="lp-films">
+        <div class="lp-film"><span class="fx">01</span><div class="when">Months 1–2</div><h4>Photo Story</h4><p>Master composition and visual storytelling through curated still images.</p></div>
+        <div class="lp-film"><span class="fx">02</span><div class="when">Month 3</div><h4>Continuity Exercise</h4><p>The grammar of filmmaking, cuts, continuity and dialogue scenes.</p></div>
+        <div class="lp-film"><span class="fx">03</span><div class="when">Months 4–5</div><h4>Interview Exercise</h4><p>Documentary skills, framing, lighting and sound recording.</p></div>
+        <div class="lp-film"><span class="fx">04</span><div class="when">Months 6–7</div><h4>Documentary Film</h4><p>A complete non-fiction film, from research to final cut.</p></div>
+        <div class="lp-film"><span class="fx">05</span><div class="when">Months 7–8</div><h4>Music Video / Ad Film</h4><p>Commercial and AI-powered visual content on current industry technology.</p></div>
+        <div class="lp-film"><span class="fx">06</span><div class="when">Months 9–11 · The Finale</div><h4>Final Narrative Short Film</h4><p>Write, direct, shoot and edit your own 10-minute thesis film, premiered on a real cinema screen in a Qube-equipped theatre, and distributed to industry.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAREER OUTCOMES -->
+  <section id="future">
+    <div class="wrap rv">
+      <span class="credit">05 · Your Future Starts Here</span>
+      <h2 class="title">One programme.<br>Every <em>role</em> on the set.</h2>
+      <p class="lede">Because you train in every craft, you leave with every door open, behind the camera, in the edit suite, or running the whole production.</p>
+      <div class="lp-roles">
+        <div class="rolechip"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14M7 4l2 6h6l2-6M9 10v9M15 10v9M6 19h12"/></svg><div class="nm">Director</div></div>
+        <div class="rolechip"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="13" height="10" rx="2"/><path d="M15 10.5l7-3.5v10l-7-3.5"/></svg><div class="nm">Cinematographer</div></div>
+        <div class="rolechip"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.5 7.5L20 19M8.5 16.5L20 5"/></svg><div class="nm">Editor</div></div>
+        <div class="rolechip"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1-4L16.5 4.5a2.1 2.1 0 0 1 3 3L8 19l-4 1zM14.5 6.5l3 3"/></svg><div class="nm">Screenwriter</div></div>
+        <div class="rolechip"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M3 8l2.5-4 4 1-2.5 4M9.5 5l4 1-2.5 4M15.5 6.5l4 1-2.3 3.7"/></svg><div class="nm">Producer</div></div>
+        <div class="rolechip"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 5l4 4M20 5l-4 4"/></svg><div class="nm">Assistant Director</div></div>
+        <div class="rolechip"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M9 3v18M15 7h.01M15 12h.01M15 17h.01"/></svg><div class="nm">Content Creator</div></div>
+        <div class="rolechip"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg><div class="nm">And More</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY FEATURES -->
+  <section id="why">
+    <div class="wrap rv">
+      <span class="credit">06 · Why QURA · Key Features</span>
+      <h2 class="title">Everything a filmmaker needs,<br>in <em>one place</em>.</h2>
+      <div class="lp-feats">
+        <div class="lp-feat"><h4><span>30-Acre</span> Film City</h4><p>Real buildings, courtyards and grounds at Thandalam become your sets, with edit &amp; DI suites on campus. You don't simulate a production, you walk onto one.</p></div>
+        <div class="lp-feat"><h4><span>1:3</span> Faculty Ratio</h4><p>Working cinematographers, editors and DoPs with current credits across Netflix, festivals and Indian cinema, one mentor for every three students.</p></div>
+        <div class="lp-feat"><h4><span>Qube</span>-Equipped Theatre</h4><p>Your thesis film premieres on a real cinema screen, finished to theatrical standard and distributed to industry.</p></div>
+        <div class="lp-feat"><h4>Powerhouse <span>Partners</span></h4><p>Qube Cinema technology (7,000+ installations worldwide), Rajalakshmi Institutions (NAAC A++) infrastructure, and LevelUp Learning (18,000+ learners).</p></div>
+        <div class="lp-feat"><h4><span>4×</span> Career Edge</h4><p>Industry-trained filmmakers position for ₹6–12L roles against ₹1.5–3L untrained, in a $30B+ industry hungry for complete professionals.</p></div>
+        <div class="lp-feat"><h4>Open <span>Eligibility</span></h4><p>18+, selected on passion and potential, a degree is welcomed, not required. Instalment / payment plans available.</p></div>
+        <div class="lp-feat"><h4><span>Masterclasses</span> with the Masters</h4><p>The advisory board of legends leads masterclasses through your year, learn directly from the people behind the films you grew up on.</p></div>
+        <div class="lp-feat"><h4>Career <span>Guidance</span> &amp; Placement</h4><p>Personalised guidance for placements, projects and opportunities, with your thesis film distributed to industry through our partner network.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section id="partners">
+    <div class="wrap rv">
+      <span class="credit">07 · A Powerhouse Partnership</span>
+      <h2 class="title">Industry. Academia. <em>Technology.</em></h2>
+      <p class="lede">Three organisations. One shared vision, to build India's school for the complete filmmaker.</p>
+      <div class="partners">
+        <div class="pcard"><span class="bk tl"></span><span class="bk br"></span><img loading="lazy" decoding="async" src="/assets/qube.png" alt="Qube Cinema" style="height:36px;filter:none;opacity:1"><div class="tag">Technology &amp; Industry</div><h4>Qube Cinema</h4><p>Pioneer in digital cinema, 7,000+ installations across 48 countries. Equipment, screening facilities, industry network and internships.</p></div>
+        <div class="pcard"><span class="bk tl"></span><span class="bk br"></span><img loading="lazy" decoding="async" src="/assets/logo-rajalakshmi.png" alt="Rajalakshmi"><div class="tag">Academic &amp; Infrastructure</div><h4>Rajalakshmi Institutions</h4><p>NAAC A++ accredited, with a city campus at RMZ Millennium Park and the 30-acre Thandalam campus. World-class facilities and certification.</p></div>
+        <div class="pcard"><span class="bk tl"></span><span class="bk br"></span><img loading="lazy" decoding="async" src="/assets/levelup.png" alt="LevelUp Learning" style="height:54px;filter:none;opacity:1"><div class="tag">Marketing &amp; Curriculum</div><h4>LevelUp Learning</h4><p>India's leading filmmaking education platform with 18,000+ learners. Drives admissions, industry engagement and the advisory board.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap rv">
+      <span class="credit">08 · Frequently Asked Questions</span>
+      <h2 class="title">Everything you're<br><em>wondering</em>, answered.</h2>
+      <div class="lp-faq">
+        <details><summary>What is the duration of the programme?<span class="pm">+</span></summary><div class="a">Eleven months, full-time and on-campus in Chennai. The Class of 2027 batch starts January 2027, and applications close November 30 · or earlier if the cohort fills.</div></details>
+        <details><summary>Who can apply for this programme?<span class="pm">+</span></summary><div class="a">Anyone 18 or older. A bachelor's degree is welcomed but not required, selection is based on passion and potential, not pedigree.</div></details>
+        <details><summary>Is prior filmmaking experience required?<span class="pm">+</span></summary><div class="a">No. Share anything you've made, a phone film, photos, writing, and a short statement of intent. No prior work? Tell us what you'd make.</div></details>
+        <details><summary>What kind of films will I make?<span class="pm">+</span></summary><div class="a">Six films across the year: a photo story, a continuity exercise, an interview exercise, a complete documentary, a music video / ad film, and your 10-minute final narrative short, premiered in a Qube-equipped theatre.</div></details>
+        <details><summary>Where is the campus located?<span class="pm">+</span></summary><div class="a">On the 30-acre Thandalam campus in Chennai, in partnership with Rajalakshmi Institutions (NAAC A++), real buildings, courtyards and grounds that become your sets, with edit &amp; DI suites and a cinema theatre on campus.</div></details>
+        <details><summary>What is the admission process?<span class="pm">+</span></summary><div class="a">Four steps: apply online, share your portfolio and statement of intent, a relaxed conversation with our faculty, then your offer and enrolment. Our team will reach out within 24 hours.</div></details>
+        <details><summary>What are the fees, and are installments available?<span class="pm">+</span></summary><div class="a">The one-year programme fee is ₹5,50,000 for the year, inclusive of equipment and campus production resources. Instalment / payment plans are available — our admissions team will walk you through the options on your call.</div></details>
+        <details><summary>What career support will I get?<span class="pm">+</span></summary><div class="a">A 1:3 faculty ratio of working professionals, masterclasses from the advisory board, industry connections through Qube Cinema and LevelUp Learning, your thesis film distributed to industry, and personalised placement guidance.</div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section id="apply" class="apply">
+    <div class="apply-bg"></div>
+    <div class="apply-ov"></div>
+    <div class="wrap inner rv">
+      <span class="credit">Class of 2027 · Batch Starts January 2027</span>
+      <h2 style="margin-top:18px">Enter as a student.<br>Leave as a <em>craftsman</em>.</h2>
+      <p>A small, selected cohort with limited seats. Personal interviews. Merit-based selection.</p>
+      <div class="actions">
+        <a href="/apply/?intent=apply" class="btn" data-gate="apply"><span class="bk tl"></span><span class="bk br"></span>▶ &nbsp;Apply Now</a>
+        <a href="/QURA-Film-Academy-Prospectus-2026-27.pdf" class="btn ghost" data-gate="prospectus" data-file="/QURA-Film-Academy-Prospectus-2026-27.pdf">Download the Prospectus</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="ft">
+    <div class="wrap">
+      <div class="ft-top">
+        <div>
+          <div class="logo"><img loading="lazy" decoding="async" src="https://qurafilm-astro.vercel.app/_astro/hero-logo.DUnMKrzy_Z1m6aLB.webp" alt="QURA Film Academy"></div>
+          <p style="color:var(--bone-dim);font-size:13px;margin-top:16px;max-width:280px">India's school for the complete filmmaker. Launching January 2027 · Chennai, India.</p>
+        </div>
+        <div class="cols">
+          <div class="col"><h5>On This Page</h5><a href="/apply/?intent=apply" data-gate="apply">Apply Now</a><a href="#masters">The Masters</a><a href="#films">Six Films</a><a href="#why">Why QURA</a></div>
+          <div class="col"><h5>Questions</h5><a href="#faq">FAQ</a><a href="#partners">Our Partners</a><a href="#founder">The Founder</a><a href="#future">Career Paths</a></div>
+        </div>
+      </div>
+      <div class="ft-bottom">
+        <span>© 2026 QURA Film Academy · LevelUp Learning · Qube Cinema · Rajalakshmi</span>
+        <span style="color:var(--brass);letter-spacing:.05em;text-transform:uppercase;font-size:10px">Class of 2027 · Chennai</span>
+      </div>
+    </div>
+  </footer>
+
+<script src="/assets/site.js"></script>
+<script src="/assets/apply-form.js"></script>
+<script>
+document.querySelectorAll('a[href="#top"]').forEach(function(a){
+  a.addEventListener('click',function(){
+    setTimeout(function(){var f=document.querySelector('.lead-card input[name="name"]');if(f)f.focus({preventScroll:true});},600);
+  });
+});
+</script>
+</body>
+</html>
