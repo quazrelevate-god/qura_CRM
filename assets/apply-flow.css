@@ -172,3 +172,7 @@ a{color:inherit}
 .th-figure::before{content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:118px;height:96px;background:#050506;border-radius:60px 60px 0 0}
 .th-figure::after{content:"";position:absolute;bottom:86px;left:50%;transform:translateX(-50%);width:58px;height:62px;background:#050506;border-radius:50%}
 .qaf2-theatre .qaf2-cap{z-index:5;background:linear-gradient(180deg,transparent,rgba(10,10,11,.55))}
+
+/* Step 4 — real cinema photo (Written & Directed by You). Image already dark at bottom; no full-panel overlay. */
+.qaf2-photo::after{display:none}
+.qaf2-photo .qaf2-cap{background:linear-gradient(180deg,transparent,rgba(10,10,11,.55))}
