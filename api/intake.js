@@ -1,21 +1,26 @@
 // QURA Film Academy — lead intake proxy (Vercel serverless, Node runtime).
 //
-// The browser posts the application JSON to this same-origin endpoint. This
-// function forwards it to the QURA CRM (PUBLIC_QURA_CRM_INTAKE_URL, set in
-// Vercel). If that URL is unset, or the CRM errors / times out / returns
-// ok:false, it falls back to the legacy destinations (Google Apps Script
-// sheet + n8n webhook) so no lead is ever lost, and returns a "warm" result.
+// The browser posts the application JSON to this same-origin endpoint. On every
+// valid submission this function FANS THE LEAD OUT to all destinations at once:
+//   1. QURA CRM      (CRM_URL / PUBLIC_QURA_CRM_INTAKE_URL) -> Supabase `leads`
+//   2. Google Sheet  (LEAD_SHEET, Apps Script web app)      -> master sheet
+//   3. n8n -> TeleCRM (LEAD_N8N; set SEND_N8N=false to stop) -> legacy CRM
 //
-// It returns the CRM's JSON to the browser unchanged, so the client can read
-// { ok, lead_id, tier, fire_lead, lead_event_id, next_url } and fire the Meta
-// Lead pixel itself (only when fire_lead is true). The Lead pixel is NEVER
-// fired on the backup route (fire_lead stays false).
+// The Sheet (and n8n) ALWAYS receive the lead, even when the CRM succeeds, so
+// the spreadsheet stays a permanent backup while the CRM is the working system.
+// When the CRM accepts the lead it returns { ok, lead_id, tier, fire_lead,
+// lead_event_id, next_url }; we pass that back to the browser unchanged so the
+// client can fire the Meta Lead pixel itself (only when fire_lead is true,
+// de-duplicated against the CRM's own server-side CAPI event via lead_event_id).
+// If the CRM is unreachable the client still gets a safe "warm" result and the
+// Lead pixel stays off -- but the lead is already saved in the Sheet + n8n.
 
-const CRM_URL = (process.env.PUBLIC_QURA_CRM_INTAKE_URL || '').trim();
+const CRM_URL = (process.env.PUBLIC_QURA_CRM_INTAKE_URL || 'https://qura-crm-one.vercel.app/api/intake').trim();
 
-// Legacy backup destinations — identical to the old site.js lead pipeline.
+// Always-on backup destinations (identical to the legacy site.js lead pipeline).
 const LEAD_SHEET = 'https://script.google.com/macros/s/AKfycbw8A3LHcRuLmZq5RlZd6fEgpOrQBvNGSqkyrNAU9uTgEa39zSOteoRJdurxNwDHKjaJKw/exec';
 const LEAD_N8N = 'https://n8n.forgebylevelup.com/webhook/qura-lead-intake';
+const SEND_N8N = true; // mirror to n8n -> TeleCRM too; set false to make the new CRM the only CRM.
 
 const TIMEOUT_MS = 10000;
 
@@ -76,6 +81,7 @@ function toLegacy(d) {
   };
 }
 
+// Google Sheet + n8n. Never throws; resolves once both have been attempted.
 async function sendBackup(d) {
   const legacy = toLegacy(d);
   const tasks = [];
@@ -84,14 +90,34 @@ async function sendBackup(d) {
     Object.keys(legacy).forEach((k) => body.append(k, legacy[k]));
     tasks.push(fetchWithTimeout(LEAD_SHEET, { method: 'POST', body: body }, TIMEOUT_MS).catch(() => {}));
   } catch (e) { /* ignore */ }
+  if (SEND_N8N) {
+    try {
+      tasks.push(fetchWithTimeout(LEAD_N8N, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(legacy)
+      }, TIMEOUT_MS).catch(() => {}));
+    } catch (e) { /* ignore */ }
+  }
+  try { await Promise.all(tasks); } catch (e) { /* ignore */ }
+}
+
+// QURA CRM. Returns the CRM's JSON when it accepts the lead, else null.
+async function sendCRM(data) {
+  if (!CRM_URL) return null;
   try {
-    tasks.push(fetchWithTimeout(LEAD_N8N, {
+    const r = await fetchWithTimeout(CRM_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(legacy)
-    }, TIMEOUT_MS).catch(() => {}));
-  } catch (e) { /* ignore */ }
-  try { await Promise.all(tasks); } catch (e) { /* ignore */ }
+      body: JSON.stringify(data)
+    }, TIMEOUT_MS);
+    if (r.ok) {
+      let j = null;
+      try { j = await r.json(); } catch (e) { j = null; }
+      if (j && j.ok) return j;
+    }
+  } catch (e) { /* treat as CRM miss */ }
+  return null;
 }
 
 module.exports = async (req, res) => {
@@ -110,26 +136,13 @@ module.exports = async (req, res) => {
     return;
   }
 
-  // Primary route: the CRM, when its URL is configured.
-  if (CRM_URL) {
-    try {
-      const r = await fetchWithTimeout(CRM_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      }, TIMEOUT_MS);
-      if (r.ok) {
-        let j = null;
-        try { j = await r.json(); } catch (e) { j = null; }
-        if (j && j.ok) {
-          res.status(200).json(j);
-          return;
-        }
-      }
-    } catch (e) { /* fall through to backup */ }
-  }
+  // Fan out to CRM + Sheet + n8n at the same time. Await all so the serverless
+  // function is not frozen before the writes finish.
+  const [crm] = await Promise.all([ sendCRM(data), sendBackup(data) ]);
 
-  // Backup route: never lose a lead. Warm screen, Lead pixel stays off.
-  await sendBackup(data);
+  // Prefer the CRM's response (carries fire_lead / lead_event_id / next_url).
+  if (crm) { res.status(200).json(crm); return; }
+
+  // CRM missed, but the lead is already in the Sheet + n8n. Warm, pixel off.
   res.status(200).json({ ok: true, tier: 'warm', fire_lead: false, lead_id: '', lead_event_id: '', next_url: '', via: 'backup' });
 };
