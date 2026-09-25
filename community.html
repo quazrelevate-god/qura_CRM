@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Meta Pixel + Google Ads · migrated from qurafilm.com -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1542599967233799');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1542599967233799&ev=PageView&noscript=1"/></noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18125399100"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-18125399100',{allow_enhanced_conversions:false});</script>
+
+<title>The Community · QURA Film Academy</title>
+<meta name="description" content="2,00,000+ filmmakers across our platforms. 18,000+ trained. Weekly sessions, offline Circles, and the Inner Circle, the community behind QURA Film Academy.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://qurafilm-astro.vercel.app" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/apply-form.css">
+<style>
+/* ===== /community, page-scoped. Fold into site.css once photos land. ===== */
+
+/* --- PLACEHOLDER SYSTEM (delete this block when real images are dropped in) --- */
+.ph{position:relative;display:flex;align-items:center;justify-content:center;text-align:center;padding:18px;overflow:hidden;
+  background:repeating-linear-gradient(45deg,rgba(123,47,190,.075) 0 10px,rgba(123,47,190,.02) 10px 20px),var(--paper-2);
+  border:1px dashed rgba(123,47,190,.5)}
+.ph .ph-in{position:relative;z-index:2;max-width:400px}
+.ph .ph-id{font-family:var(--helv);font-weight:800;font-size:13px;letter-spacing:.1em;color:var(--brass)}
+.ph .ph-spec{font-family:var(--helv);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:9.5px;color:var(--ink-dim);margin-top:5px;opacity:.8}
+.ph .ph-desc{font-size:11.5px;line-height:1.5;color:var(--ink-dim);margin-top:9px}
+.ph .ph-no{font-size:10.5px;line-height:1.45;color:#9a3d3d;margin-top:7px;font-style:italic}
+.ph.dk{background:repeating-linear-gradient(45deg,rgba(165,107,224,.13) 0 10px,rgba(10,10,11,.5) 10px 20px),#141018;border-color:var(--gold-line)}
+.ph.dk .ph-id{color:var(--gold-soft)}
+.ph.dk .ph-spec,.ph.dk .ph-desc{color:var(--bone-dim)}
+.ph.dk .ph-no{color:#e2908f}
+
+/* --- §00 hero --- */
+.chero{position:relative;min-height:88vh;display:flex;align-items:center;background:var(--black);color:var(--bone);border-top:0;padding:0;overflow:hidden}
+.chero .bg{position:absolute;inset:0;z-index:0}
+.chero .bg .ph{width:100%;height:100%;border:0}
+.chero .bg::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;
+  background:radial-gradient(65% 75% at 20% 62%,rgba(123,47,190,.3),transparent 60%),
+    linear-gradient(90deg,rgba(8,8,10,.94) 8%,rgba(8,8,10,.55) 58%,rgba(8,8,10,.8));
+  box-shadow:inset 0 0 220px 60px rgba(0,0,0,.85)}
+.chero .lb{position:absolute;left:0;right:0;height:7vh;background:#000;z-index:4}
+.chero .lb.t{top:0;border-bottom:1px solid var(--gold-line)}
+.chero .lb.b{bottom:0;border-top:1px solid var(--gold-line)}
+.chero .inner{position:relative;z-index:5;max-width:860px;padding-left:96px}
+.chero .kick{font-family:var(--helv);text-transform:uppercase;letter-spacing:.05em;font-size:12px;color:var(--gold);font-weight:700}
+.chero h1{font-family:var(--serif);font-weight:600;font-size:clamp(40px,6vw,80px);line-height:1.03;letter-spacing:-.025em;margin:22px 0 0;color:var(--bone)}
+.chero h1 em{font-style:normal;color:var(--gold-soft)}
+.chero .sub{font-size:18px;line-height:1.7;color:var(--bone-dim);margin-top:26px;max-width:560px}
+@media(max-width:680px){.chero .inner{padding-left:24px;padding-right:24px}}
+
+/* --- §01 numbers --- */
+.numbers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid rgba(108,34,168,.3);margin-top:50px}
+.numbers div{padding:34px 26px;border-right:1px solid rgba(108,34,168,.3);min-width:0}
+.numbers div:last-child{border-right:0}
+.numbers .n{font-family:var(--helv);font-weight:700;letter-spacing:-.02em;font-size:clamp(30px,3.4vw,44px);color:var(--brass);line-height:1}
+.numbers .l{font-family:var(--helv);text-transform:uppercase;letter-spacing:.05em;font-size:10.5px;color:var(--ink-dim);margin-top:11px;line-height:1.45}
+@media(max-width:820px){.numbers{grid-template-columns:repeat(2,1fr)}.numbers div{border-bottom:1px solid rgba(108,34,168,.3)}.numbers div:nth-child(2n){border-right:0}}
+
+/* --- §02 weekly --- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:56px}
+@media(max-width:900px){.split{grid-template-columns:1fr;gap:40px}}
+.stack{display:grid;grid-template-columns:1.25fr 1fr;gap:14px;align-items:start}
+.stack .a{aspect-ratio:3/2}
+.stack .b{aspect-ratio:4/5;margin-top:44px}
+.fmt{list-style:none;margin-top:32px;border-top:1px solid var(--line-ink)}
+.fmt li{padding:15px 0;border-bottom:1px solid var(--line-ink);display:flex;gap:16px;align-items:baseline;font-size:14.5px;color:var(--ink-dim)}
+.fmt li b{font-family:var(--helv);font-size:10.5px;font-weight:800;letter-spacing:.09em;color:var(--brass);min-width:26px}
+
+/* --- §03 circles --- */
+.circles-sec{background:var(--black);color:var(--bone);border-top:1px solid var(--gold-line)}
+.circles-sec .credit{color:var(--gold)}
+.circles-sec h2.title{color:var(--bone)} .circles-sec h2.title em{color:var(--gold-soft)}
+.circles-sec .lede{color:var(--bone-dim)}
+.circles-sec .btn{color:var(--bone);border-color:var(--gold-line)}
+.circles-sec .btn:hover{color:var(--black);border-color:var(--gold)}
+.circles-sec .btn::before{background:var(--gold)}
+.circles-sec .bk{border-color:var(--gold)}
+.anchor{aspect-ratio:2.39/1;margin-top:52px}
+.citycards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+@media(max-width:900px){.citycards{grid-template-columns:1fr}}
+.citycard{border:1px solid var(--gold-line);background:rgba(255,255,255,.02)}
+.citycard .ph{aspect-ratio:3/2;border:0;border-bottom:1px dashed var(--gold-line)}
+.citycard .meta{padding:20px 22px}
+.citycard .meta h4{font-family:var(--serif);font-weight:600;font-size:21px;color:var(--bone);letter-spacing:-.01em}
+.citycard .meta span{display:block;font-family:var(--helv);text-transform:uppercase;letter-spacing:.06em;font-size:10px;color:var(--gold-soft);margin-top:7px}
+
+/* --- §04 inner circle --- */
+.ic{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;margin-top:56px;align-items:start}
+@media(max-width:900px){.ic{grid-template-columns:1fr;gap:36px}}
+.ic .pic{aspect-ratio:4/5;position:relative}
+.tiers{width:100%;border-collapse:collapse;border:1px solid rgba(108,34,168,.3)}
+.tiers th,.tiers td{padding:16px 18px;text-align:left;border-bottom:1px solid var(--line-ink);font-size:13.5px;color:var(--ink-dim);vertical-align:top}
+.tiers thead th{font-family:var(--helv);text-transform:uppercase;letter-spacing:.07em;font-size:10px;font-weight:800;color:var(--brass);background:rgba(123,47,190,.05);border-bottom:1px solid rgba(108,34,168,.3)}
+.tiers thead th:first-child{color:var(--ink-dim);opacity:.6}
+.tiers tbody th{font-weight:600;color:var(--ink);font-size:13.5px}
+.tiers td.on{color:var(--ink);font-weight:600}
+.tiers td.off{opacity:.45}
+.tiers .todo{color:#9a3d3d;font-style:italic}
+.tiers tr:last-child th,.tiers tr:last-child td{border-bottom:0}
+.tiers col.hi{background:rgba(123,47,190,.045)}
+
+/* --- §05 the faces --- */
+.faces-sec{background:#08080a;color:var(--bone);border-top:1px solid var(--gold-line);overflow:hidden}
+.faces-sec .credit{color:var(--gold)}
+.faces-sec h2.title{color:var(--bone)} .faces-sec h2.title em{color:var(--gold-soft)}
+.faces-sec .lede{color:var(--bone-dim)}
+.mosaic{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:150px;gap:3px;margin-top:52px}
+.mosaic .ph{border-radius:0}
+.m1{grid-column:span 2;grid-row:span 2}
+.m2{grid-column:span 2;grid-row:span 1}
+.m3{grid-column:span 2;grid-row:span 2}
+.m4{grid-column:span 2;grid-row:span 1}
+.m5{grid-column:span 2;grid-row:span 2}
+.m6{grid-column:span 2;grid-row:span 2}
+.m7{grid-column:span 2;grid-row:span 2}
+.m8{grid-column:span 3;grid-row:span 2}
+.m9{grid-column:span 3;grid-row:span 2}
+@media(max-width:900px){.mosaic{grid-template-columns:repeat(2,1fr);grid-auto-rows:130px}
+  .m1,.m2,.m3,.m4,.m5,.m6,.m7,.m8,.m9{grid-column:span 1;grid-row:span 1}
+  .m1,.m3,.m8{grid-column:span 2}}
+.mos-cap{font-family:var(--helv);text-transform:uppercase;letter-spacing:.06em;font-size:10px;color:var(--bone-dim);margin-top:20px;opacity:.75}
+
+/* --- §06 voices --- */
+.voices{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:56px}
+@media(max-width:900px){.voices{grid-template-columns:1fr}}
+.voice{border:1px solid var(--line-ink);padding:30px 28px;position:relative;background:rgba(255,255,255,.35)}
+.voice q{font-family:var(--serif);font-style:italic;font-size:17px;line-height:1.6;color:var(--ink);display:block;quotes:none}
+.voice .by{display:flex;gap:13px;align-items:center;margin-top:24px;padding-top:20px;border-top:1px solid var(--line-ink)}
+.voice .by .ph{width:46px;height:46px;border-radius:50%;flex-shrink:0;padding:0}
+.voice .by .ph .ph-id{font-size:8px;letter-spacing:.04em}
+.voice .by .t b{display:block;font-size:13px;color:var(--ink);font-weight:600}
+.voice .by .t span{display:block;font-family:var(--helv);text-transform:uppercase;letter-spacing:.05em;font-size:9.5px;color:var(--ink-dim);margin-top:3px}
+
+/* --- §07 bridge --- */
+.bridge{background:var(--black);color:var(--bone);border-top:1px solid var(--gold-line);text-align:center}
+.bridge .credit{color:var(--gold)}
+.bridge h2{font-family:var(--serif);font-weight:600;font-size:clamp(28px,3.9vw,46px);line-height:1.12;letter-spacing:-.02em;color:var(--bone);margin:16px auto 0;max-width:900px}
+.bridge h2 em{font-style:normal;color:var(--gold-soft)}
+.bridge p{color:var(--bone-dim);max-width:620px;margin:24px auto 0;font-size:17px;line-height:1.7}
+.bridge .actions{display:flex;gap:24px;justify-content:center;align-items:center;margin-top:40px;flex-wrap:wrap}
+.bridge .btn{color:var(--bone);border-color:var(--gold-line)}
+.bridge .btn:hover{color:var(--black);border-color:var(--gold)}
+.bridge .btn::before{background:var(--gold)}
+.bridge .btn.ghost:hover{color:var(--purple-soft)}
+.bridge .bk{border-color:var(--gold)}
+.bridge .chip{display:inline-block;margin-top:34px;font-family:var(--helv);text-transform:uppercase;letter-spacing:.07em;font-size:10px;color:var(--gold-soft);border:1px solid var(--gold-line);padding:8px 16px}
+
+/* --- build notes banner (delete before deploy) --- */
+.draftbar{position:fixed;bottom:0;left:0;right:0;z-index:9998;background:#2a0f42;color:#E9D9FA;
+  font-family:var(--helv);font-size:11px;letter-spacing:.04em;padding:9px 20px;text-align:center;border-top:1px solid var(--purple-soft)}
+.draftbar b{color:#fff}
+</style>
+</head>
+<body>
+  <div class="spine"></div><div class="edge-label">QURA Film Academy · The Community</div>
+  <header class="nav">
+    <a href="index.html" class="logo"><img loading="eager" fetchpriority="high" src="https://qurafilm-astro.vercel.app/_astro/hero-logo.DUnMKrzy_Z1m6aLB.webp" alt="QURA Film Academy"></a>
+    <nav>
+      <a href="index.html#masters" class="link">The Masters</a>
+      <a href="programs-1-year.html" class="link">Programmes</a>
+      <a href="campus-thandalam.html" class="link">Film City</a>
+      <a href="admissions.html" class="link">Admissions</a>
+      <a href="founder.html" class="link">Founder</a>
+      <a href="community.html" class="link">Community</a>
+      <a href="apply.html" data-gate="apply"><span class="nav-deadline">Deadline · Nov 30</span><span class="nav-apply">Apply</span></a>
+    </nav>
+  </header>
+
+  <!-- ============ §00 · HERO ============ -->
+  <section class="chero">
+    <div class="bg">
+      <div class="ph"><div class="ph-in">
+        <div class="ph-id">IMG-01 · HERO</div>
+        <div class="ph-spec">2.39:1 · 2400×1004 · &lt;600KB</div>
+        <div class="ph-desc">Your single best wide room shot. Many people, visible faces, someone mid-gesture. Shot from behind or beside the crowd looking toward a speaker/screen, so the viewer stands <i>inside</i> the audience. Dark or gradeable to dark.</div>
+        <div class="ph-no">Not: a posed group photo · empty chairs · anyone looking at camera · a stage with no crowd in frame</div>
+      </div></div>
+    </div>
+    <div class="lb t"></div><div class="lb b"></div>
+    <div class="inner">
+      <span class="kick">§00 · The Community</span>
+      <h1>Two lakh filmmakers<br>were here <em>before you</em>.</h1>
+      <p class="sub">India's largest filmmaking community. Every week, in rooms and on calls, they argue about frames. QURA is where that argument gets a campus.</p>
+    </div>
+  </section>
+
+  <!-- ============ §01 · THE NUMBERS ============ -->
+  <section>
+    <div class="wrap rv">
+      <span class="credit">§01 · The Numbers</span>
+      <h2 class="title">Not a launch. A <em>continuation</em>.</h2>
+      <p class="lede">QURA does not begin in January 2027. It begins with a community that has been running for years, and an academy is simply the deepest room in a house that is already full.</p>
+      <div class="numbers">
+        <div><div class="n">2,00,000+</div><div class="l">Filmmakers across our platforms</div></div>
+        <div><div class="n">18,000+</div><div class="l">Trained by LevelUp</div></div>
+        <div><div class="n">Weekly</div><div class="l">Sessions, without a break</div></div>
+        <div><div class="n">[N] cities</div><div class="l">Circles, offline &amp; in person</div></div>
+      </div>
+      <p style="font-size:11.5px;color:#9a3d3d;font-style:italic;margin-top:16px">⚠ Needs from you: the real city count. If it's 1–2, we cut this cell and replace it with sessions-run-to-date.</p>
+    </div>
+  </section>
+
+  <!-- ============ §02 · EVERY WEEK ============ -->
+  <section>
+    <div class="wrap rv">
+      <span class="credit">§02 · The Weekly</span>
+      <h2 class="title">[Thursday] night,<br>wherever <em>you are</em>.</h2>
+      <div class="split">
+        <div>
+          <p class="lede" style="margin-top:0">Every week, without a break, the community meets online. No syllabus, no attendance, no certificate at the end of it. Someone brings a scene. Everyone else takes it apart.</p>
+          <p class="lede">It is the least glamorous thing we do and the reason the community is the size it is. You cannot fake having done this for years, and you cannot shortcut what it teaches you about your own work.</p>
+          <ul class="fmt">
+            <li><b>01</b><span>[Frame breakdowns, a scene, shot by shot]</span></li>
+            <li><b>02</b><span>[Guest craft sessions, someone who does it for a living]</span></li>
+            <li><b>03</b><span>[Work-in-progress reviews, your cut, on the screen, in front of everyone]</span></li>
+            <li><b>04</b><span>[Open floor]</span></li>
+          </ul>
+          <p style="font-size:11.5px;color:#9a3d3d;font-style:italic;margin-top:18px">⚠ Placeholder copy, I invented the day and all four format names. Send the real ones.</p>
+        </div>
+        <div class="stack">
+          <div class="ph a"><div class="ph-in">
+            <div class="ph-id">IMG-02</div>
+            <div class="ph-spec">3:2 · 1800×1200</div>
+            <div class="ph-desc">A real online session, a screen-share mid-critique, a grid of faces, or a laptop with the session open in a real room.</div>
+            <div class="ph-no">Not: a stock Zoom screenshot · unreadable blurred faces</div>
+          </div></div>
+          <div class="ph b"><div class="ph-in">
+            <div class="ph-id">IMG-03</div>
+            <div class="ph-spec">4:5 · 1200×1500</div>
+            <div class="ph-desc">One person watching intently. Headphones, notebook, face lit by the screen.</div>
+            <div class="ph-no">Not: smiling at camera · staged "student working"</div>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ §03 · THE CIRCLES ============ -->
+  <section class="circles-sec">
+    <div class="wrap rv">
+      <span class="credit">§03 · The Circles</span>
+      <h2 class="title">Some things don't survive<br>a <em>video call</em>.</h2>
+      <p class="lede">So a few times a year we stop typing and get in a room. A Circle is small, local and unrecorded, a screening, an argument, and the specific kind of trust that only forms when you have watched someone defend their own cut to their face.</p>
+      <div class="ph dk anchor"><div class="ph-in">
+        <div class="ph-id">IMG-07 · CIRCLES ANCHOR</div>
+        <div class="ph-spec">2.39:1 · 2400×1004</div>
+        <div class="ph-desc">Wide offline event, the fullest room you have. Ideally a <b>different room</b> from IMG-01.</div>
+        <div class="ph-no">Not: a repeat of the hero shot</div>
+      </div></div>
+      <div class="citycards">
+        <div class="citycard">
+          <div class="ph dk"><div class="ph-in">
+            <div class="ph-id">IMG-04</div>
+            <div class="ph-spec">3:2 · 1600×1067</div>
+            <div class="ph-desc">Must be identifiably <b>this city</b>, a recognisable venue, street or skyline in frame. People mid-conversation.</div>
+          </div></div>
+          <div class="meta"><h4>[City One]</h4><span>[Monthly]</span></div>
+        </div>
+        <div class="citycard">
+          <div class="ph dk"><div class="ph-in">
+            <div class="ph-id">IMG-05</div>
+            <div class="ph-spec">3:2 · 1600×1067</div>
+            <div class="ph-desc">Same rule, this city must be <b>recognisable</b>, not interchangeable with the other two.</div>
+          </div></div>
+          <div class="meta"><h4>[City Two]</h4><span>[Quarterly]</span></div>
+        </div>
+        <div class="citycard">
+          <div class="ph dk"><div class="ph-in">
+            <div class="ph-id">IMG-06</div>
+            <div class="ph-spec">3:2 · 1600×1067</div>
+            <div class="ph-desc">Same rule. If three photos could be swapped without anyone noticing, the section fails.</div>
+          </div></div>
+          <div class="meta"><h4>[City Three]</h4><span>[Quarterly]</span></div>
+        </div>
+      </div>
+      <p style="font-size:11.5px;color:#e2908f;font-style:italic;margin-top:20px">⚠ Needs from you: real cities + cadence each. Card count flexes to however many you actually run.</p>
+    </div>
+  </section>
+
+  <!-- ============ §04 · THE INNER CIRCLE ============ -->
+  <section>
+    <div class="wrap rv">
+      <span class="credit">§04 · The Inner Circle</span>
+      <h2 class="title">Not everyone gets in.<br>That's <em>the point</em>.</h2>
+      <p class="lede">The community is open. The Inner Circle is not. It is the smaller room behind it, where the sessions are kept, the seats are held, and the people who are serious find each other faster.</p>
+      <div class="ic">
+        <div class="ph pic"><div class="ph-in">
+          <div class="ph-id">IMG-08 · INNER CIRCLE</div>
+          <div class="ph-spec">4:5 · 1400×1750</div>
+          <div class="ph-desc">Small-group intimacy. 4–8 people, close together, one person leading. Must <i>feel</i> smaller and more private than every other photo on this page, that contrast is what sells the tier.</div>
+          <div class="ph-no">Not: a big crowd · anything that looks like the open Circles</div>
+        </div></div>
+        <div>
+          <table class="tiers">
+            <colgroup><col><col><col class="hi"></colgroup>
+            <thead><tr><th>What you get</th><th>Community</th><th>Inner Circle</th></tr></thead>
+            <tbody>
+              <tr><th>Weekly sessions</th><td class="off">Live only</td><td class="on">Live + recordings</td></tr>
+              <tr><th>Offline Circles</th><td class="off">Open registration</td><td class="on">Priority access</td></tr>
+              <tr><th>Newsletter</th><td class="on">Included</td><td class="on">Included</td></tr>
+              <tr><th class="todo">[Perk four]</th><td class="off">, </td><td class="todo">[?]</td></tr>
+              <tr><th class="todo">[Perk five]</th><td class="off">, </td><td class="todo">[?]</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:11.5px;color:#9a3d3d;font-style:italic;margin-top:18px">⚠ <b>Blocking.</b> Your message cut off at <i>"and a community premium member will get"</i>. Also unresolved: is the Inner Circle <b>paid</b> or <b>invited</b>? Paid means a price has to appear here. Invited means the gate itself is the story, and that version is considerably stronger on an admissions page.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ §05 · THE FACES ============ -->
+  <section class="faces-sec">
+    <div class="wrap rv">
+      <span class="credit">§05 · The Faces</span>
+      <h2 class="title">Two lakh is a number.<br><em>This</em> is what it looks like.</h2>
+      <div class="mosaic">
+        <div class="ph dk m1"><div class="ph-in"><div class="ph-id">IMG-09</div><div class="ph-spec">3:2 · 1600×1067</div><div class="ph-desc">A <b>laughing</b> face, caught not posed</div></div></div>
+        <div class="ph dk m2"><div class="ph-in"><div class="ph-id">IMG-10</div><div class="ph-spec">1:1 · 1200²</div><div class="ph-desc"><b>Hands</b>, on a camera, laptop, clapboard, notebook</div></div></div>
+        <div class="ph dk m3"><div class="ph-in"><div class="ph-id">IMG-11</div><div class="ph-spec">4:5 · 1200×1500</div><div class="ph-desc">A <b>crowd from behind</b>, screen glowing ahead</div></div></div>
+        <div class="ph dk m4"><div class="ph-in"><div class="ph-id">IMG-12</div><div class="ph-spec">1:1 · 1200²</div><div class="ph-desc"><b>Two people arguing</b> about something on a screen</div></div></div>
+        <div class="ph dk m5"><div class="ph-in"><div class="ph-id">IMG-13</div><div class="ph-spec">4:5 · 1200×1500</div><div class="ph-desc">A <b>speaker mid-sentence</b>, arm out</div></div></div>
+        <div class="ph dk m6"><div class="ph-in"><div class="ph-id">IMG-14</div><div class="ph-spec">4:5 · 1200×1500</div><div class="ph-desc"><b>Someone alone</b>, watching, absorbed</div></div></div>
+        <div class="ph dk m7"><div class="ph-in"><div class="ph-id">IMG-15</div><div class="ph-spec">4:5 · 1200×1500</div><div class="ph-desc"><b>Gear</b>, a real camera/light being handled, not displayed</div></div></div>
+        <div class="ph dk m8"><div class="ph-in"><div class="ph-id">IMG-16</div><div class="ph-spec">3:2 · 1600×1067</div><div class="ph-desc">A <b>wide venue</b> shot with QURA/LevelUp branding visible in frame</div></div></div>
+        <div class="ph dk m9"><div class="ph-in"><div class="ph-id">IMG-17</div><div class="ph-spec">3:2 · 1600×1067</div><div class="ph-desc">The <b>after-hours group shot</b>, the informal one, the one that looks unofficial</div></div></div>
+      </div>
+      <div class="mos-cap">Community meetups, screenings and sessions · [Year]–2026 · [Cities]</div>
+      <p style="font-size:11.5px;color:#e2908f;font-style:italic;margin-top:14px">⚠ Nine beats, nine photos. If any two could be swapped without anyone noticing, one of them is dead weight, send more than nine and I'll cut to the strongest set.</p>
+    </div>
+  </section>
+
+  <!-- ============ §06 · VOICES ============ -->
+  <section>
+    <div class="wrap rv">
+      <span class="credit">§06 · Voices</span>
+      <h2 class="title">In their <em>own words</em>.</h2>
+      <div class="voices">
+        <div class="voice">
+          <q>[Real member quote, 1 to 2 sentences. Ideally about what the community changed for them, not how great it is.]</q>
+          <div class="by">
+            <div class="ph"><div class="ph-in"><div class="ph-id">IMG-18</div></div></div>
+            <div class="t"><b>[Name]</b><span>[City] · [What they do]</span></div>
+          </div>
+        </div>
+        <div class="voice">
+          <q>[Real member quote, pick someone at a different stage. A beginner and a working professional saying the same thing is worth more than two beginners.]</q>
+          <div class="by">
+            <div class="ph"><div class="ph-in"><div class="ph-id">IMG-19</div></div></div>
+            <div class="t"><b>[Name]</b><span>[City] · [What they do]</span></div>
+          </div>
+        </div>
+        <div class="voice">
+          <q>[Real member quote, the third should ideally name something specific: a session, a Circle, a person they met.]</q>
+          <div class="by">
+            <div class="ph"><div class="ph-in"><div class="ph-id">IMG-20</div></div></div>
+            <div class="t"><b>[Name]</b><span>[City] · [What they do]</span></div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:11.5px;color:#9a3d3d;font-style:italic;margin-top:20px">⚠ Needs three real quotes with permission to publish. If you don't have them, <b>we delete this section</b>, a page whose entire argument is "two lakh real people" cannot quote invented ones.</p>
+    </div>
+  </section>
+
+  <!-- ============ §07 · THE BRIDGE ============ -->
+  <section class="bridge">
+    <div class="wrap rv">
+      <span class="credit">§07 · The Bridge</span>
+      <h2>The community is where you learn that you're serious.<br>QURA is <em>what you do about it</em>.</h2>
+      <p>The community is free, wide and weekly. The academy is eleven months, six films, a 1:3 faculty ratio and a real film city. One is open to everyone. The other you are admitted to.</p>
+      <div class="actions">
+        <a href="apply.html" data-gate="apply" class="btn"><span class="bk tl"></span><span class="bk br"></span>Apply to the Class of 2027</a>
+        <a href="request-info.html" data-gate="info" class="btn ghost">Request the prospectus</a>
+      </div>
+      <div><span class="chip">Applications close · Nov 30</span></div>
+    </div>
+  </section>
+
+  <footer class="ft">
+    <div class="wrap">
+      <div class="ft-top">
+        <div><div class="logo"><img loading="lazy" decoding="async" src="https://qurafilm-astro.vercel.app/_astro/hero-logo.DUnMKrzy_Z1m6aLB.webp" alt="QURA Film Academy"></div>
+          <p style="color:var(--bone-dim);font-size:13px;margin-top:16px;max-width:280px">India's school for the complete filmmaker. Launching January 2027 · Chennai, India.</p></div>
+        <div class="cols">
+          <div class="col"><h5>Programmes</h5><a href="programs-1-year.html">One-Year Programme</a><a href="programs-2-year.html">Two-Year Programme</a><a href="index.html#masters">The Masters</a><a href="campus-thandalam.html">Film City</a></div>
+          <div class="col"><h5>Admissions</h5><a href="apply.html" data-gate="apply">Apply Now</a><a href="admissions.html#fees">Fees & Installments</a><a href="admissions.html#eligibility">Eligibility</a><a href="admissions.html#faq">FAQ</a></div>
+          <div class="col"><h5>About</h5><a href="founder.html">Founder</a><a href="community.html">The Community</a><a href="campus-city.html">City Campus</a><a href="request-info.html" data-gate="info">Request Info</a></div>
+        </div>
+      </div>
+      <div class="ft-bottom"><span>© 2026 QURA Film Academy · LevelUp · Qube Cinema · Rajalakshmi</span><span style="color:var(--purple);letter-spacing:.05em;text-transform:uppercase;font-size:10px">V3 Prototype</span></div>
+    </div>
+  </footer>
+
+  <div class="draftbar"><b>DRAFT, not deployed.</b> 20 photo slots + 6 copy gaps marked. Delete <code>.ph</code> / <code>.draftbar</code> CSS blocks and the ⚠ notes before going live.</div>
+<script src="assets/site.js"></script>
+<script src="assets/apply-form.js"></script>
+</body>
+</html>

@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>QURA Film Academy — Prospectus 2026–27</title>
+<link rel="stylesheet" href="prospectus-assets/fonts/fonts.css">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --black:#0A0A0B; --paper:#F4F1EA; --paper2:#EBE5D8; --ink:#1A1714; --ink-dim:#4A443A;
+    --gold:#C8A24B; --gold-soft:#E2C988; --brass:#83661F; --purple:#7B2FBE; --purple-soft:#A56BE0;
+    --bone-dim:#B9B4A8; --gold-line:rgba(200,162,75,.42); --gold-line-dim:rgba(200,162,75,.22);
+    --hair-dark:rgba(26,23,20,.14); --hair-light:rgba(244,241,234,.16);
+  }
+  @page{size:A4;margin:0}
+  html,body{background:#222}
+  body{-webkit-print-color-adjust:exact;print-color-adjust:exact;font-family:'Archivo',Helvetica,Arial,sans-serif}
+  .pg{width:210mm;height:297mm;position:relative;overflow:hidden;page-break-after:always;background:var(--paper);color:var(--ink)}
+  .pg.dark{background:var(--black);color:var(--paper)}
+  /* architectural hairline grid + warm corner glows */
+  .pg .bg{position:absolute;inset:0;pointer-events:none}
+  .pg.paperbg .bg{background-image:
+    linear-gradient(to right,var(--hair-dark) .3mm,transparent .3mm),
+    linear-gradient(to bottom,var(--hair-dark) .3mm,transparent .3mm);
+    background-size:26.25mm 26.25mm;opacity:.35}
+  .pg.paperbg .bg::after{content:"";position:absolute;inset:0;background:
+    radial-gradient(90mm 90mm at 0% 0%,rgba(200,162,75,.13),transparent 70%),
+    radial-gradient(110mm 110mm at 100% 100%,rgba(123,47,190,.07),transparent 70%)}
+  .pg.darkbg .bg{background-image:
+    linear-gradient(to right,rgba(200,162,75,.08) .3mm,transparent .3mm),
+    linear-gradient(to bottom,rgba(200,162,75,.08) .3mm,transparent .3mm);
+    background-size:26.25mm 26.25mm}
+  .pg.darkbg .bg::after{content:"";position:absolute;inset:0;background:
+    radial-gradient(100mm 100mm at 100% 0%,rgba(200,162,75,.10),transparent 70%),
+    radial-gradient(90mm 90mm at 0% 100%,rgba(123,47,190,.09),transparent 70%)}
+  .pad{position:relative;padding:15mm 15mm 20mm;height:100%}
+  /* type */
+  .disp{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;line-height:1.02;letter-spacing:-.01em}
+  .disp em{font-style:italic;color:var(--gold)}
+  .dark .disp em{color:var(--gold-soft)}
+  .eyebrow{font-size:7pt;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--brass)}
+  .dark .eyebrow{color:var(--gold)}
+  .chip{display:inline-block;background:var(--gold);color:var(--black);font-size:7pt;font-weight:700;letter-spacing:.24em;text-transform:uppercase;padding:2mm 3.6mm}
+  .chip.purple{background:var(--purple);color:#fff}
+  .secno{font-size:8pt;font-weight:700;letter-spacing:.1em;color:var(--gold)}
+  .body{font-size:9pt;line-height:1.62;color:var(--ink-dim)}
+  .dark .body{color:var(--bone-dim)}
+  .lead{font-size:10.5pt;line-height:1.6}
+  .num{font-family:'Archivo',Helvetica,sans-serif;font-variant-numeric:lining-nums}
+  /* film strip motif */
+  .strip{height:4.6mm;background:
+    repeating-linear-gradient(90deg,transparent 0,transparent 1.6mm,var(--gold-line-dim) 1.6mm,var(--gold-line-dim) 4.4mm,transparent 4.4mm,transparent 6mm);
+    border-top:.35mm solid var(--gold-line-dim);border-bottom:.35mm solid var(--gold-line-dim)}
+  /* corner ticks */
+  .ticks::before,.ticks::after{content:"";position:absolute;width:6mm;height:6mm;border:0 solid var(--gold-line)}
+  .ticks::before{top:9mm;left:9mm;border-top-width:.5mm;border-left-width:.5mm}
+  .ticks::after{bottom:9mm;right:9mm;border-bottom-width:.5mm;border-right-width:.5mm}
+  /* footer */
+  .foot{position:absolute;left:15mm;right:15mm;bottom:8.5mm;display:flex;justify-content:space-between;align-items:baseline;border-top:.35mm solid var(--gold-line-dim);padding-top:2.6mm;font-size:6.3pt;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-dim)}
+  .dark .foot{color:var(--bone-dim)}
+  .foot .pn{color:var(--gold);font-weight:700}
+  img{display:block}
+  .cover-img,.full-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  /* stat cards */
+  .statgrid{display:grid;grid-template-columns:1fr 1fr;gap:8mm}
+  .stat{background:var(--paper);color:var(--ink);padding:8mm 7mm 6.5mm;box-shadow:3.2mm 3.2mm 0 rgba(200,162,75,.9);position:relative}
+  .stat .v{font-size:30pt;font-weight:700;letter-spacing:-.02em;line-height:1}
+  .stat .l{margin-top:2.6mm;font-size:7pt;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--brass)}
+  .stat::after{content:"";position:absolute;top:3mm;right:3mm;width:2.6mm;height:2.6mm;background:var(--purple);opacity:.85}
+  /* people rows */
+  .prow{display:grid;grid-template-columns:46mm 1fr;gap:8mm;align-items:center;padding:6.5mm 0}
+  .prow + .prow{border-top:.35mm solid var(--gold-line-dim)}
+  .prow img{width:46mm;height:56mm;object-fit:cover;object-position:center top}
+  .pname{font-family:'Cormorant Garamond',serif;font-size:19pt;font-weight:600;line-height:1.05}
+  .prole{font-size:6.8pt;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);margin-bottom:1.8mm}
+  .pfilms{font-size:8.6pt;line-height:1.5;color:var(--ink-dim);margin-top:1.8mm}
+  .phon{font-size:7.6pt;font-weight:600;letter-spacing:.06em;color:var(--brass);margin-top:2mm}
+  /* faculty cards */
+  .fgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6mm}
+  .fcard img{width:100%;height:60mm;object-fit:cover;object-position:center top;filter:saturate(.92)}
+  .fcard .fn{font-family:'Cormorant Garamond',serif;font-size:14.5pt;font-weight:600;margin-top:3.4mm}
+  .fcard .fr{font-size:6.6pt;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);margin-top:1.2mm}
+  .fcard .fb{font-size:8pt;line-height:1.6;color:var(--ink-dim);margin-top:2.2mm}
+  /* rows on dark plates */
+  .rrow{display:grid;grid-template-columns:40mm 1fr;gap:6mm;padding:8.6mm 0;border-top:.35mm solid var(--hair-light)}
+  .rrow:last-child{border-bottom:.35mm solid var(--hair-light)}
+  .rrow .rl{font-size:8pt;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+  .rrow .rt{font-family:'Cormorant Garamond',serif;font-size:18.5pt;font-weight:600;line-height:1.05;margin-bottom:2.2mm}
+  .rrow .rb{font-size:9.1pt;line-height:1.62;color:var(--bone-dim);max-width:138mm}
+  /* tables */
+  table{width:100%;border-collapse:collapse}
+  .tbl th{font-size:6.6pt;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);text-align:left;padding:0 0 2.4mm}
+  .tbl td{font-size:8.8pt;line-height:1.5;color:var(--ink);padding:3.4mm 4mm 3.4mm 0;border-top:.35mm solid var(--gold-line-dim);vertical-align:top}
+  .tbl td.r{text-align:right;white-space:nowrap;font-weight:600}
+  .mono-num{font-weight:700}
+  .gold{color:var(--gold)} .brasst{color:var(--brass)}
+</style>
+</head>
+<body>
+
+<!-- ══════════ 1 · COVER ══════════ -->
+<div class="pg dark">
+  <img class="cover-img" src="prospectus-assets/atm-camera.png" alt="">
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,11,.72) 0%,rgba(10,10,11,.18) 34%,rgba(10,10,11,.14) 55%,rgba(10,10,11,.88) 100%)"></div>
+  <div style="position:absolute;top:0;bottom:0;left:9mm;width:.35mm;background:var(--gold-line-dim)"></div>
+  <div style="position:absolute;top:0;bottom:0;right:9mm;width:.35mm;background:var(--gold-line-dim)"></div>
+  <div class="pad" style="display:flex;flex-direction:column">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <img src="prospectus-assets/logo.webp" alt="QURA" style="height:13mm" onerror="this.style.display='none'">
+      <div class="eyebrow" style="color:var(--gold-soft);text-align:right;line-height:2">QURA Film Academy · Est. 2026<br>Chennai, India</div>
+    </div>
+    <div style="flex:1"></div>
+    <div>
+      <div class="chip">Prospectus 2026 – 27</div>
+      <h1 class="disp" style="font-size:46pt;color:var(--paper);margin-top:7mm">India&rsquo;s only school<br>for the <em>complete</em><br>filmmaker.</h1>
+      <p class="body" style="color:var(--bone-dim);max-width:112mm;margin-top:6mm;font-size:9.5pt">Eleven months. Every craft of cinema. A 30-acre film city, a faculty of working professionals, and an advisory board of the people who built Indian cinema.</p>
+    </div>
+    <div style="margin-top:9mm" class="strip"></div>
+    <div style="display:flex;justify-content:space-between;margin-top:4mm;font-size:6.6pt;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--bone-dim)">
+      <span>Certified by Rajalakshmi Engineering College · NAAC A++ · Affiliated to Anna University</span>
+      <span class="gold">qurafilm.com</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ 2 · CONTENTS ══════════ -->
+<div class="pg paperbg ticks">
+  <div class="bg"></div>
+  <div class="pad" style="display:grid;grid-template-columns:1fr 56mm;gap:12mm">
+    <div>
+      <div class="eyebrow">What&rsquo;s inside</div>
+      <h2 class="disp" style="font-size:31pt;margin:5mm 0 9mm">Everything a year<br>at QURA <em>holds</em>.</h2>
+      <div style="font-size:9pt;line-height:1.5">
+        <div style="display:grid;grid-template-columns:9mm 1fr auto;row-gap:4.05mm;column-gap:4mm;align-items:baseline">
+          <span class="gold mono-num">—</span><span>The Manifesto</span><span class="brasst num">03</span>
+          <span class="gold mono-num">—</span><span>At a Glance</span><span class="brasst num">04</span>
+          <span class="gold mono-num">—</span><span>From the Founder</span><span class="brasst num">05</span>
+          <span class="gold mono-num">—</span><span>Why QURA Exists</span><span class="brasst num">06</span>
+          <span class="gold mono-num">01</span><span>The Masters — Advisory Board</span><span class="brasst num">07</span>
+          <span class="gold mono-num">02</span><span>The Faculty</span><span class="brasst num">11</span>
+          <span class="gold mono-num">03</span><span>The One-Year Programme</span><span class="brasst num">13</span>
+          <span class="gold mono-num">—</span><span>The Six Films You Make</span><span class="brasst num">16</span>
+          <span class="gold mono-num">04</span><span>Qura Film City — Thandalam</span><span class="brasst num">17</span>
+          <span class="gold mono-num">—</span><span>The City Campus &amp; Living</span><span class="brasst num">19</span>
+          <span class="gold mono-num">—</span><span>The Experience</span><span class="brasst num">20</span>
+          <span class="gold mono-num">05</span><span>The Opportunity</span><span class="brasst num">22</span>
+          <span class="gold mono-num">—</span><span>Career Pathways</span><span class="brasst num">23</span>
+          <span class="gold mono-num">—</span><span>A Powerhouse Partnership</span><span class="brasst num">24</span>
+          <span class="gold mono-num">06</span><span>Fees, Scholarships &amp; Admissions</span><span class="brasst num">25</span>
+          <span class="gold mono-num">—</span><span>Begin Your Application</span><span class="brasst num">27</span>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:5mm">
+      <img src="prospectus-assets/atm-goldenhour.png" style="width:100%;height:74mm;object-fit:cover">
+      <img src="assets/fc-motion.jpg" style="width:100%;height:74mm;object-fit:cover">
+      <img src="prospectus-assets/atm-lens.png" style="width:100%;height:74mm;object-fit:cover">
+      <div class="eyebrow" style="text-align:right">Class of 2027 · Chennai</div>
+    </div>
+  </div>
+  <div class="foot"><span>QURA Film Academy</span><span>Prospectus 2026–27</span><span class="pn num">02</span></div>
+</div>
+
+<!-- ══════════ 3 · MANIFESTO ══════════ -->
+<div class="pg dark darkbg">
+  <div class="bg"></div>
+  <div class="pad" style="display:flex;flex-direction:column">
+    <div class="eyebrow">The Manifesto</div>
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center">
+      <h2 class="disp" style="font-size:41pt">Most film schools<br>teach you <em>one craft</em>.<br>The industry needs<br>people who command<br><em>all of them</em>.</h2>
+      <p class="body" style="max-width:126mm;margin-top:9mm;font-size:10pt">You don&rsquo;t pick a lane at QURA — you learn the whole road. Writing, direction, cinematography, editing: over eleven months you make six films on professional equipment, on a real film city, beside mentors with current credits across Netflix, festivals and landmark Indian cinema. You enter knowing you love film. You leave a complete filmmaker.</p>
+    </div>
+    <div class="strip"></div>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:5mm">
+      <div class="eyebrow" style="color:var(--bone-dim)">A partnership between</div>
+      <div style="font-size:8pt;font-weight:600;letter-spacing:.1em;color:var(--paper)">Qube Cinema&nbsp;&nbsp;·&nbsp;&nbsp;Rajalakshmi Institutions&nbsp;&nbsp;·&nbsp;&nbsp;LevelUp Learning&nbsp;&nbsp;·&nbsp;&nbsp;Lata Murugan</div>
+    </div>
+  </div>
+  <div class="foot"><span>QURA Film Academy</span><span>Prospectus 2026–27</span><span class="pn num">03</span></div>
+</div>
+
+<!-- ══════════ 4 · AT A GLANCE ══════════ -->
+<div class="pg dark darkbg">
+  <div class="bg"></div>
+  <div class="pad">
+    <div class="chip">At a glance</div>
+    <h2 class="disp" style="font-size:30pt;margin:6mm 0 10mm">One year. <em>Measured</em> in what you make.</h2>
+    <div class="statgrid">
+      <div class="stat"><div class="v num">11</div><div class="l">Months · Full-Time · On Campus</div></div>
+      <div class="stat"><div class="v num">6</div><div class="l">Films you write, shoot &amp; cut</div></div>
+      <div class="stat"><div class="v num">4</div><div class="l">Craft phases, built like a production</div></div>
+      <div class="stat"><div class="v num">1:3</div><div class="l">Faculty ratio — never lost in a crowd</div></div>
+      <div class="stat"><div class="v num">24</div><div class="l">Seats. One limited cohort</div></div>
+      <div class="stat"><div class="v num">30</div><div class="l">Acres of film city to shoot inside</div></div>
+    </div>
+    <div style="margin-top:12mm;border:.35mm solid var(--gold-line);padding:7mm 8mm">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:16pt;font-style:italic;color:var(--gold-soft)">The January 2027 batch is open.</div>
+      <div style="font-size:7.4pt;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--paper);margin-top:2.6mm">Applications close November 30, 2026 — or once the cohort is full</div>
+    </div>
+  </div>
+  <div class="foot"><span>QURA Film Academy</span><span>Prospectus 2026–27</span><span class="pn num">04</span></div>
+</div>
+
+<!-- ══════════ 5 · FOUNDER ══════════ -->
+<div class="pg paperbg">
+  <div class="bg"></div>
+  <div class="pad" style="display:grid;grid-template-columns:62mm 1fr;gap:10mm">
+    <div>
+      <img src="prospectus-assets/founder.png" style="width:62mm;height:82mm;object-fit:cover;object-position:center top">
+      <div style="background:var(--black);color:var(--paper);padding:5mm 5.5mm">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:12.5pt;font-weight:600">Lata Murugan</div>
+        <div style="font-size:6.4pt;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-top:1.6mm;line-height:1.9">Founder &amp; Academic Head<br>Former Head of Direction,<br>L.V. Prasad Film &amp; TV Academy</div>
+      </div>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:13pt;font-style:italic;line-height:1.35;margin-top:6mm;color:var(--ink)">&ldquo;QURA is what I would have wanted at&nbsp;twenty-two.&rdquo;</p>
+      <div style="margin-top:5mm" class="eyebrow">Granddaughter of A.V. Meiyappan,<br>founder of AVM Studios</div>
+    </div>
+    <div>
+      <div class="eyebrow">From the Founder</div>
+      <h2 class="disp" style="font-size:24.5pt;margin:4mm 0 5.5mm">A letter from<br><em>Lata Murugan</em>.</h2>
+      <div class="body" style="font-size:8.7pt;line-height:1.66">
+        <p>I grew up in the corridors of AVM Studios — India&rsquo;s oldest surviving film studio, founded by my grandfather, A.&thinsp;V. Meiyappan. Cinema was not a career choice for me; it was the air I breathed. But when I entered film education — first as a student, then as a teacher across India, the United States and Southern Africa — I saw the same gap everywhere.</p>
+        <p style="margin-top:3.4mm">Film schools taught craft in silos. You chose direction or cinematography or editing in your first year, before you understood what filmmaking truly demanded. Theory lived in one classroom; practice lived in another. And the cost of entry locked talented students from middle-class families out entirely.</p>
+        <p style="margin-top:3.4mm;font-family:'Cormorant Garamond',serif;font-size:13pt;font-style:italic;color:var(--ink)">QURA is my answer to all of that.</p>
+        <p style="margin-top:3.4mm">In twenty years of teaching — at L.V. Prasad Film &amp; TV Academy, at institutions across three continents — I have seen what produces great filmmakers. It is not specialisation at eighteen. It is immersion: making films from day one, learning every craft, and discovering your voice through the act of creation itself.</p>
+        <p style="margin-top:3.4mm">That is what we have built at QURA. An eleven-month intensive where you don&rsquo;t just study filmmaking — you do it. Six films. Four phases. Theory every morning, production every afternoon. And at ₹5.5 lakhs, a price that keeps this education within reach of talent, not just means.</p>
+        <p style="margin-top:3.4mm">Our faculty are not academics who once made films. They are working filmmakers — Emmy-nominated cinematographers, Netflix-credited editors, Fulbright scholars — who bring the industry into the classroom every single day. Our partners — Qube Cinema, Rajalakshmi Institutions and LevelUp Learning — bring technology, infrastructure and a community of 18,000+ filmmakers to your doorstep.</p>
+        <p style="margin-top:3.4mm">To the students reading this: if you have a story to tell, we will give you the craft to tell it. To the parents reading this: your child will be safe, supervised, and shaped by people who have dedicated their lives to this art form.</p>
+        <p style="margin-top:4.5mm;font-family:'Cormorant Garamond',serif;font-size:12.5pt;font-style:italic;color:var(--ink)">Warm regards,<br><span style="font-size:15pt;font-style:normal;font-weight:600">Lata Murugan</span></p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>QURA Film Academy</span><span>Prospectus 2026–27</span><span class="pn num">05</span></div>
+</div>
+
+<!-- ══════════ 6 · WHY QURA ══════════ -->
+<div class="pg paperbg ticks">
+  <div class="bg"></div>
+  <div class="pad">
+    <div class="eyebrow">Why QURA exists</div>
+    <h2 class="disp" style="font-size:27pt;margin:5mm 0 8mm;max-width:160mm">Most aspiring filmmakers don&rsquo;t lack talent. They lack the <em>door</em> into the industry.</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:7mm">
+      <div style="border-top:.7mm solid var(--gold);padding-top:4mm">
+        <div class="secno num">.01</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:14.5pt;font-weight:600;margin:2mm 0">You love film.</div>
+        <p class="body" style="font-size:8.4pt">You&rsquo;ve watched hundreds, imagined your own, shot on whatever you had. But no one has shown you how to turn that obsession into a professional craft.</p>
+      </div>
+      <div style="border-top:.7mm solid var(--gold);padding-top:4mm">
+        <div class="secno num">.02</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:14.5pt;font-weight:600;margin:2mm 0">We train you on real productions.</div>
+        <p class="body" style="font-size:8.4pt">Over eleven months you make six films on professional equipment, beside mentors who&rsquo;ve worked on Netflix shows, Emmy-nominated projects and landmark Indian cinema.</p>
+      </div>
+      <div style="border-top:.7mm solid var(--gold);padding-top:4mm">
+        <div class="secno num">.03</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:14.5pt;font-weight:600;margin:2mm 0">You leave with proof.</div>
+        <p class="body" style="font-size:8.4pt">Not just a certificate — a portfolio of completed films, a network of industry mentors, and the command that comes from doing the work.</p>
+      </div>
+    </div>
+    <div style="margin:9mm 0 8mm" class="strip"></div>
+    <div class="eyebrow">Our philosophy</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:7mm;margin-top:5mm">
+      <div style="background:var(--black);color:var(--paper);padding:7mm 6mm">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:14pt;font-weight:600">Complete,<br><em style="color:var(--gold-soft)">not specialised.</em></div>
+        <p style="font-size:8pt;line-height:1.6;color:var(--bone-dim);margin-top:3mm">Every student learns writing, direction, cinematography, editing and production. You graduate understanding the entire filmmaking pipeline — not one corner of it.</p>
+      </div>
+      <div style="background:var(--black);color:var(--paper);padding:7mm 6mm">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:14pt;font-weight:600">Production,<br><em style="color:var(--gold-soft)">not theory.</em></div>
+        <p style="font-size:8pt;line-height:1.6;color:var(--bone-dim);margin-top:3mm">From your first week, you&rsquo;re behind the camera. Six complete film projects in eleven months. Theory mornings build knowledge; practical afternoons build craft.</p>
+      </div>
+      <div style="background:var(--black);color:var(--paper);padding:7mm 6mm">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:14pt;font-weight:600">Accessible,<br><em style="color:var(--gold-soft)">not exclusive.</em></div>
+        <p style="font-size:8pt;line-height:1.6;color:var(--bone-dim);margin-top:3mm">At ₹5.5 lakhs — against ₹13–27 lakhs at other leading programmes — QURA opens world-class film education to talent, not just wealth. Production costs are included in fees.</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>QURA Film Academy</span><span>Prospectus 2026–27</span><span class="pn num">06</span></div>
+</div>
+<!-- ══════════ 7 · SECTION 01 OPENER — THE MASTERS ══════════ -->
+<div class="pg dark darkbg">
+  <div class="bg"></div>
+  <div class="pad" style="display:flex;flex-direction:column">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div class="chip">Section 01</div>
+      <div class="eyebrow" style="color:var(--bone-dim)">The Masters · Advisory Board</div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center">
+      <h2 class="disp" style="font-size:40pt">The people who<br>built Indian cinema.<br>Shaping how<br>you&rsquo;ll <em>learn</em> it.</h2>
+      <p class="body" style="max-width:122mm;margin-top:8mm;font-size:9.6pt">Our advisory board isn&rsquo;t a list of endorsers. It&rsquo;s the directors, cinematographers and editors whose films a billion people grew up on — guiding the curriculum you&rsquo;ll train inside, and leading masterclasses through your year.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:2.5mm">
+      <img src="prospectus-assets/kamal.png" style="width:100%;height:34mm;object-fit:cover;object-position:center top;filter:grayscale(28%)">
+      <img src="prospectus-assets/mani.png" style="width:100%;height:34mm;object-fit:cover;object-position:center top;filter:grayscale(28%)">
+      <img src="prospectus-assets/pcsreeram.png" style="width:100%;height:34mm;object-fit:cover;object-position:center top;filter:grayscale(28%)">
+      <img src="prospectus-assets/sreekar.png" style="width:100%;height:34mm;object-fit:cover;object-position:center top;filter:grayscale(28%)">
+      <img src="prospectus-assets/jayendra.png" style="width:100%;height:34mm;object-fit:cover;object-position:center top;filter:grayscale(28%)">
+      <img src="prospectus-assets/senthil.png" style="width:100%;height:34mm;object-fit:cover;object-position:center top;filter:grayscale(28%)">
+    </div>
+  </div>
+  <div class="foot"><span>QURA Film Academy</span><span>01 · The Masters</span><span class="pn num">07</span></div>
+</div>
+
+<!-- ══════════ 8 · MASTERS A ══════════ -->
+<div class="pg paperbg">
+  <div class="bg"></div>
+  <div class="pad">
+    <div class="eyebrow">01 · The Masters — Advisory Board</div>
+    <div class="prow" style="margin-top:3mm">
+      <img src="prospectus-assets/kamal.png">
+      <div>
+        <div class="prole">Actor · Filmmaker</div>
+        <div class="pname">Kamal Haasan</div>
+        <p class="pfilms"><i>Nayakan · Indian · Thevar Magan · Vikram</i> — over 230 films across five decades, spanning acting, writing, direction and production.</p>
+        <div class="phon">National Awards &nbsp;·&nbsp; Padma Bhushan</div>
+      </div>
+    </div>
+    <div class="prow">
+      <img src="prospectus-assets/mani.png">
+      <div>
+        <div class="prole">Director</div>
+        <div class="pname">Mani Ratnam</div>
+        <p class="pfilms"><i>Nayakan · Roja · Bombay · Iruvar · Ponniyin Selvan</i> — the filmmaker whose grammar shaped modern Indian cinema.</p>
+        <div class="phon">7 National Awards &nbsp;·&nbsp; Padma Shri</div>
+      </div>
+    </div>
+    <div class="prow">
+      <img src="prospectus-assets/pcsreeram.png">
+      <div>
+        <div class="prole">Cinematographer · ISC</div>
+        <div class="pname">P. C. Sreeram</div>
+        <p class="pfilms"><i>Mouna Ragam · Geethanjali · Agni Natchathiram · OK Kanmani</i> — light as language. President, Qube Cinema.</p>
+        <div class="phon">National Award — Best Cinematography &nbsp;·&nbsp; Our Partner</div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>QURA Film Academy</span><span>01 · The Masters</span><span class="pn num">08</span></div>
+</div>
+
+<!-- ══════════ 9 · MASTERS B ══════════ -->
+<div class="pg paperbg">
+  <div class="bg"></div>
+  <div class="pad">
+    <div class="eyebrow">01 · The Masters — Advisory Board</div>
+    <div class="prow" style="margin-top:3mm">
+      <img src="prospectus-assets/sreekar.png">
+      <div>
+        <div class="prole">Editor</div>
+        <div class="pname">A. Sreekar Prasad</div>
+        <p class="pfilms"><i>RRR · Raavanan · Kannathil Muthamittal</i> — more than 600 films across 17 languages.</p>
+        <div class="phon">9 National Awards &nbsp;·&nbsp; Invited to the Oscar Academy (AMPAS)</div>
+      </div>
+    </div>
+    <div class="prow">
+      <img src="prospectus-assets/jayendra.png">
+      <div>
+        <div class="prole">Filmmaker · Qube Co-Founder</div>
+        <div class="pname">Jayendra Panchapakesan</div>
+        <p class="pfilms"><i>180 · Margazhi Raagam</i> — co-founded JS Films with P.&thinsp;C. Sreeram; a storyteller across film, advertising and live experiences.</p>
+        <div class="phon">Co-Founder, Qube Cinema &nbsp;·&nbsp; Our Partner</div>
+      </div>
+    </div>
+    <div class="prow">
+      <img src="prospectus-assets/senthil.png">
+      <div>
+        <div class="prole">Technologist · Qube Co-Founder</div>
+        <div class="pname">Senthil Kumar</div>
+        <p class="pfilms">Pioneer of digital cinema in India — the technology behind Qube now powers 7,000+ screens across 48 countries.</p>
+        <div class="phon">Member, Academy (Oscars) Committee &nbsp;·&nbsp; Co-Founder, Qube Cinema</div>
+      </div>
+    </div>
+    <div style="margin-top:6mm;background:var(--black);color:var(--paper);padding:5.5mm 7mm;display:flex;justify-content:space-between;align-items:baseline">
+      <span style="font-family:'Cormorant Garamond',serif;font-size:13pt;font-style:italic;color:var(--gold-soft)">Masterclasses with the masters, through your year.</span>
+      <span style="font-size:6.8pt;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--bone-dim)">Guiding the curriculum you train inside</span>
+    </div>
+  </div>
+  <div class="foot"><span>QURA Film Academy</span><span>01 · The Masters</span><span class="pn num">09</span></div>
+</div>
+
+<!-- ══════════ 10 · BREATHER — ON SET ══════════ -->
+<div class="pg dark">
+  <img class="full-img" src="prospectus-assets/atm-crew.png" alt="">
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,10,11,.78) 100%)"></div>
+  <div style="position:absolute;left:15mm;right:15mm;bottom:14mm">
+    <div class="strip" style="margin-bottom:5mm"></div>
+    <div style="display:flex;justify-content:space-between;align-items:baseline">
+      <span style="font-family:'Cormorant Garamond',serif;font-size:17pt;font-style:italic;color:var(--paper)">The set is the only classroom that matters.</span>
+      <span style="font-size:6.6pt;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)">QURA · Chennai</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ 11 · FACULTY A ══════════ -->
+<div class="pg paperbg">
+  <div class="bg"></div>
+  <div class="pad">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div class="chip">Section 02</div>
+      <div class="eyebrow">The Faculty · Who teach you daily</div>
+    </div>
+    <h2 class="disp" style="font-size:28pt;margin:6mm 0 4mm">Working professionals.<br>Still <em>shaping the screen</em>.</h2>
+    <p class="body" style="max-width:150mm;margin-bottom:8mm">Your instructors aren&rsquo;t retired academics — they&rsquo;re cinematographers, editors and directors of photography with current credits across Netflix, festivals and Indian cinema, teaching you on real productions.</p>
+    <div class="fgrid">
+      <div class="fcard">
+        <img src="assets/uma-vanga.png">
+        <div class="fr">Filmmaker &amp; Educator</div>
+        <div class="fn">Uma Vangal</div>
+        <p class="fb">Filmmaker, film critic and media scholar with over 32 years in media education. Two-time Fulbright Fellow. Leadership roles at L.V. Prasad Film &amp; TV Academy, Loyola College and the Asian College of Journalism.</p>
+      </div>
+      <div class="fcard">
+        <img src="assets/sharanya-chander.png">
+        <div class="fr">Cinematographer</div>
+        <div class="fn">Sharanya Chander</div>
+        <p class="fb">Trained under ace DOP Nirav Shah. Credits on <i>Enthiran 2.0, Super Deluxe</i> and <i>Sita Ramam</i>; shot <i>Coke Studio Tamil</i> and Netflix&rsquo;s <i>Nayanthara: Beyond the Fairy Tale</i>. Member, Indian Women Cinematographer Collective.</p>
+      </div>
+      <div class="fcard">
+        <img src="assets/sraiyanti.png">
+        <div class="fr">Director of Photography</div>
+        <div class="fn">Sraiyanti</div>
+        <p class="fb">DOP on <i>Gargi</i> (2022) and <i>The Feast</i> (2024) — Best Visual Storytelling at IFFLA. Emmy-nominated for <i>India&rsquo;s Forbidden Love</i>; her documentary <i>Auto Queens</i> premiered at IDFA. Has worked with VICE, Al Jazeera and Discovery.</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>QURA Film Academy</span><span>02 · The Faculty</span><span class="pn num">11</span></div>
+</div>
+
+<!-- ══════════ 12 · FACULTY B ══════════ -->
+<div class="pg paperbg">
+  <div class="bg"></div>
+  <div class="pad" style="display:flex;flex-direction:column;justify-content:space-between">
+    <div class="eyebrow">02 · The Faculty — continued</div>
+    <div class="fgrid" style="margin-top:6mm">
+      <div class="fcard">
+        <img src="assets/abhishikta-kaila.png">
+        <div class="fr">Editor</div>
+        <div class="fn">Abhishikta Kaila</div>
+        <p class="fb">Award-winning editor and SRFTI graduate. On-set editor with director Abhishek Chaubey on Netflix&rsquo;s <i>Killer Soup</i>. Assisted National Award-winning editor A. Sreekar Prasad on <i>Baahubali, RRR</i> and <i>Guru</i>.</p>
+      </div>
+      <div class="fcard">
+        <img src="assets/daniel-charles.png">
+        <div class="fr">Sound Engineer</div>
+        <div class="fn">Daniel Charles</div>
+        <p class="fb">Over 15 years across live concerts, broadcast and game audio. Former Head of Audio Engineering at Bridge Academy, Chennai; currently Live Sound Engineer with Media Pro International, Dubai. Expert in L-Acoustics, Dante and leading DAWs.</p>
+      </div>
+      <div class="fcard">
+        <img src="prospectus-assets/praveen.png">
+        <div class="fr">Writer · Director · Mentor</div>
+        <div class="fn">Praveen Raghupathy</div>
+        <p class="fb">Mentored 150+ students at L.V. Prasad Film Institute. More than 25,000 trained through 180+ filmmaking workshops across India — one of the country&rsquo;s most experienced filmmaking educators.</p>
+      </div>
+    </div>
+    <div style="margin:9mm 0 7mm" class="strip"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8mm">
+      <div style="border-left:.7mm solid var(--gold);padding-left:5mm">
+        <div class="eyebrow">In the classroom</div>
+        <p class="body" style="font-size:8.6pt;margin-top:2.5mm">A 1:3 faculty ratio means your mentors know your name, your strengths and your blind spots — and push you accordingly, every single day.</p>
+      </div>
+      <div style="border-left:.7mm solid var(--gold);padding-left:5mm">
+        <div class="eyebrow">Beyond the classroom</div>
+        <p class="body" style="font-size:8.6pt;margin-top:2.5mm">Guest lectures from working professionals and masterclasses by the advisory board bring the industry to you — before Qube&rsquo;s network takes you to the industry.</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>QURA Film Academy</span><span>02 · The Faculty</span><span class="pn num">12</span></div>
+</div>
+<!-- ══════════ 13 · SECTION 03 OPENER — THE PROGRAMME ══════════ -->
+<div class="pg dark">
+  <div style="position:absolute;top:0;bottom:0;right:0;width:88mm">
+    <img src="prospectus-assets/atm-goldenhour.png" style="width:100%;height:100%;object-fit:cover">
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg,#0A0A0B 0%,rgba(10,10,11,.06) 55%)"></div>
+  </div>
+  <div class="pad" style="width:132mm;display:flex;flex-direction:column">
+    <div class="chip">Section 03</div>
+    <div class="eyebrow" style="margin-top:4mm;color:var(--bone-dim);letter-spacing:.18em">The Flagship · Certified · NAAC A++</div>
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center">
+      <h2 class="disp" style="font-size:37pt">The One-Year<br><em>Programme</em>.</h2>
+      <p class="body" style="margin-top:6mm;font-size:9.6pt;max-width:100mm">Eleven months, full-time, on campus in Chennai. You enter knowing you love film. You leave a complete filmmaker — with six finished films and command of every craft.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5mm;max-width:96mm">
+      <div style="border:.35mm solid var(--gold-line);padding:4.5mm 5mm"><div class="num" style="font-size:19pt;font-weight:700">11</div><div style="font-size:6.4pt;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-top:1.4mm">Months full-time</div></div>
+      <div style="border:.35mm solid var(--gold-line);padding:4.5mm 5mm"><div class="num" style="font-size:19pt;font-weight:700">6</div><div style="font-size:6.4pt;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-top:1.4mm">Films you make</div></div>
+      <div style="border:.35mm solid var(--gold-line);padding:4.5mm 5mm"><div class="num" style="font-size:19pt;font-weight:700">4</div><div style="font-size:6.4pt;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-top:1.4mm">Craft phases</div></div>
+      <div style="border:.35mm solid var(--gold-line);padding:4.5mm 5mm"><div class="num" style="font-size:19pt;font-weight:700">1:3</div><div style="font-size:6.4pt;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-top:1.4mm">Faculty ratio</div></div>
+    </div>
+  </div>
+  <div class="foot" style="right:98mm"><span>QURA Film Academy</span><span class="pn num">13</span></div>
+</div>
+
+<!-- ══════════ 14 · CURRICULUM — 4 PHASES ══════════ -->
+<div class="pg dark darkbg">
+  <div class="bg"></div>
+  <div class="pad" style="display:flex;flex-direction:column;justify-content:space-between">
+    <div class="eyebrow">03 · The Curriculum — Four Phases</div>
+    <h2 class="disp" style="font-size:31pt;margin:6mm 0 11mm">Built the way films are <em>made</em>.</h2>
+    <div class="rrow">
+      <div class="rl num">Months<br>1 – 2</div>
+      <div>
+        <div class="rt">Foundations</div>
+        <p class="rb">Still photography, composition, framing. The language of cinema and visual grammar. You learn to see like a filmmaker before you touch a movie camera — and tell your first story through curated still images.</p>
+      </div>
+    </div>
+    <div class="rrow">
+      <div class="rl num">Months<br>3 – 5</div>
+      <div>
+        <div class="rt">Building Blocks</div>
+        <p class="rb">Moving image, continuity, dialogue. Documentary theory and interview craft. Cameras, sound recording and editing software become daily tools in your hands.</p>
+      </div>
+    </div>
+    <div class="rrow">
+      <div class="rl num">Months<br>6 – 8</div>
+      <div>
+        <div class="rt">Applied Craft</div>
+        <p class="rb">Documentary, music video and ad filmmaking — including AI-assisted production tools — plus advanced post-production. Your highest period of creative output.</p>
+      </div>
+    </div>
+    <div class="rrow">
+      <div class="rl num">Months<br>9 – 11</div>
+      <div>
+        <div class="rt">The Final Film</div>
+        <p class="rb">Write, shoot and complete your 10-minute narrative short — your thesis film. Faculty mentorship intensifies. Your film premieres in a Qube-equipped theatre before an industry audience, and the best work is submitted to national and international festivals.</p>
+      </div>
+    </div>
+    <div style="margin-top:13mm;display:flex;justify-content:space-between;align-items:baseline">
+      <span style="font-family:'Cormorant Garamond',serif;font-size:15pt;font-style:italic;color:var(--gold-soft)">Four phases. Each one ends with a film in your hands.</span>
+      <span class="eyebrow" style="color:var(--bone-dim)">See the six films · p.16</span>
+    </div>
+  </div>
+  <div class="foot"><span>QURA Film Academy</span><span>03 · The Programme</span><span class="pn num">14</span></div>
+</div>
+
+<!-- ══════════ 15 · DAILY RHYTHM + FOUR CRAFTS ══════════ -->
+<div class="pg paperbg ticks">
+  <div class="bg"></div>
+  <div class="pad">
+    <div class="eyebrow">03 · How we teach filmmaking</div>
+    <h2 class="disp" style="font-size:27pt;margin:5mm 0 8mm">Theory in the morning.<br>A real set in the <em>afternoon</em>.</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:7mm">
+      <div style="background:var(--paper2);padding:6.5mm 7mm;border-top:.9mm solid var(--gold)">
+        <div class="eyebrow">Every morning</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:15pt;font-weight:600;margin:2mm 0">Theory &amp; film language</div>
+        <p class="body" style="font-size:8.4pt">Film history, visual grammar, screenwriting, story structure, and the close analysis of cinema — building your critical eye and your film language.</p>
+      </div>
+      <div style="background:var(--black);color:var(--paper);padding:6.5mm 7mm;border-top:.9mm solid var(--gold)">
+        <div class="eyebrow" style="color:var(--gold)">Every afternoon</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:15pt;font-weight:600;margin:2mm 0">Practical &amp; production</div>
+        <p style="font-size:8.4pt;line-height:1.62;color:var(--bone-dim)">Camera work, lighting setups, sound recording, editing and on-set production — real cameras, real sets, beside industry-seasoned faculty.</p>
+      </div>
+    </div>
+    <div style="margin:9mm 0 7mm" class="strip"></div>
+    <div class="eyebrow">Every craft · You don&rsquo;t pick a lane — you learn the whole road</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:5mm;margin-top:5mm">
+      <div style="border-top:.35mm solid var(--gold-line);padding-top:3.5mm">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:13.5pt;font-weight:600">Writing</div>
+        <p class="body" style="font-size:7.9pt;margin-top:1.6mm">Structure, screenwriting, character, dialogue.</p>
+      </div>
+      <div style="border-top:.35mm solid var(--gold-line);padding-top:3.5mm">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:13.5pt;font-weight:600">Direction</div>
+        <p class="body" style="font-size:7.9pt;margin-top:1.6mm">Blocking, performance, visual story, on-set leadership.</p>
+      </div>
+      <div style="border-top:.35mm solid var(--gold-line);padding-top:3.5mm">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:13.5pt;font-weight:600">Cinematography</div>
+        <p class="body" style="font-size:7.9pt;margin-top:1.6mm">Camera, light, lens, composition, colour.</p>
+      </div>
+      <div style="border-top:.35mm solid var(--gold-line);padding-top:3.5mm">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:13.5pt;font-weight:600">Editing &amp; Post</div>
+        <p class="body" style="font-size:7.9pt;margin-top:1.6mm">Assembly, pacing, sound, DI, delivery.</p>
+      </div>
+    </div>
+    <div style="margin-top:8mm;display:grid;grid-template-columns:1fr 1fr;gap:7mm;align-items:stretch">
+      <img src="prospectus-assets/film-camera.webp" style="width:100%;height:46mm;object-fit:cover">
+      <div style="background:var(--paper2);padding:6mm 7mm;display:flex;flex-direction:column;justify-content:center">
+        <p style="font-family:'Cormorant Garamond',serif;font-size:14.5pt;font-style:italic;line-height:1.35;color:var(--ink)">&ldquo;Most schools graduate a specialist. QURA graduates a filmmaker who can step into any role on a set with fluency.&rdquo;</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>QURA Film Academy</span><span>03 · The Programme</span><span class="pn num">15</span></div>
+</div>
+
+<!-- ══════════ 16 · THE SIX FILMS ══════════ -->
+<div class="pg paperbg">
+  <div class="bg"></div>
+  <div style="position:absolute;top:0;bottom:0;left:0;width:58mm">
+    <img src="prospectus-assets/atm-lens.png" style="width:100%;height:100%;object-fit:cover">
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg,transparent 60%,var(--paper) 100%)"></div>
+  </div>
+  <div class="pad" style="margin-left:58mm;width:152mm;padding-left:10mm">
+    <div class="eyebrow">03 · Your portfolio</div>
+    <h2 class="disp" style="font-size:26pt;margin:4mm 0 6mm">Six films.<br><em>One year.</em></h2>
+    <p class="body" style="font-size:8.6pt;margin-bottom:6mm">Progressive projects that build from still images to a complete narrative short. By graduation, you hold a professional portfolio across multiple formats.</p>
+    <div>
+      <div style="display:grid;grid-template-columns:10mm 1fr 24mm;gap:4mm;padding:3.6mm 0;border-top:.35mm solid var(--gold-line-dim)">
+        <span class="secno num">01</span><div><b style="font-size:9.5pt">Photo Story</b><div class="body" style="font-size:7.9pt;margin-top:1mm">Master composition and visual storytelling through curated still images.</div></div><span class="eyebrow num" style="text-align:right">Months 1–2</span>
+      </div>
+      <div style="display:grid;grid-template-columns:10mm 1fr 24mm;gap:4mm;padding:3.6mm 0;border-top:.35mm solid var(--gold-line-dim)">
+        <span class="secno num">02</span><div><b style="font-size:9.5pt">Continuity Exercise</b><div class="body" style="font-size:7.9pt;margin-top:1mm">The grammar of filmmaking — cuts, continuity and dialogue scenes.</div></div><span class="eyebrow num" style="text-align:right">Month 3</span>
+      </div>
+      <div style="display:grid;grid-template-columns:10mm 1fr 24mm;gap:4mm;padding:3.6mm 0;border-top:.35mm solid var(--gold-line-dim)">
+        <span class="secno num">03</span><div><b style="font-size:9.5pt">Interview Exercise</b><div class="body" style="font-size:7.9pt;margin-top:1mm">Documentary skills — framing, lighting and sound recording.</div></div><span class="eyebrow num" style="text-align:right">Months 4–5</span>
+      </div>
+      <div style="display:grid;grid-template-columns:10mm 1fr 24mm;gap:4mm;padding:3.6mm 0;border-top:.35mm solid var(--gold-line-dim)">
+        <span class="secno num">04</span><div><b style="font-size:9.5pt">Documentary Film</b><div class="body" style="font-size:7.9pt;margin-top:1mm">A complete non-fiction film, from research to final cut.</div></div><span class="eyebrow num" style="text-align:right">Months 6–7</span>
+      </div>
+      <div style="display:grid;grid-template-columns:10mm 1fr 24mm;gap:4mm;padding:3.6mm 0;border-top:.35mm solid var(--gold-line-dim)">
+        <span class="secno num">05</span><div><b style="font-size:9.5pt">Music Video / Ad Film</b><div class="body" style="font-size:7.9pt;margin-top:1mm">Commercial content using AI-assisted tools and current industry technology.</div></div><span class="eyebrow num" style="text-align:right">Months 7–8</span>
+      </div>
+      <div style="display:grid;grid-template-columns:10mm 1fr 24mm;gap:4mm;padding:3.6mm 0;border-top:.35mm solid var(--gold-line-dim);border-bottom:.35mm solid var(--gold-line-dim)">
+        <span class="secno num">06</span><div><b style="font-size:9.5pt">Final Narrative Short Film</b><div class="body" style="font-size:7.9pt;margin-top:1mm">Write, direct, shoot and edit your own 10-minute narrative film — your thesis, premiered in a Qube-equipped theatre.</div></div><span class="eyebrow num" style="text-align:right">Months 9–11</span>
+      </div>
+    </div>
+    <div style="margin-top:6mm;background:var(--black);color:var(--paper);padding:5mm 6mm">
+      <p style="font-size:8pt;line-height:1.6;color:var(--bone-dim)"><b style="color:var(--gold-soft)">A level playing field.</b> All production costs — equipment, locations, post — are covered from your fees. No student spends out of pocket on any project. Films are judged purely on creative merit.</p>
+    </div>
+  </div>
+  <div class="foot" style="left:68mm"><span>QURA Film Academy</span><span>03 · The Programme</span><span class="pn num">16</span></div>
+</div>
+
+<!-- ══════════ 17 · SECTION 04 OPENER — FILM CITY ══════════ -->
+<div class="pg dark">
+  <img class="full-img" src="assets/fc-campus.jpg" alt="">
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,11,.62) 0%,rgba(10,10,11,.28) 40%,rgba(10,10,11,.86) 100%)"></div>
+  <div class="pad" style="display:flex;flex-direction:column">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div class="chip">Section 04</div>
+      <div class="eyebrow" style="color:var(--gold-soft)">Thandalam · 30 Acres · The Closer</div>
+    </div>
+    <div style="flex:1"></div>
+    <h2 class="disp" style="font-size:38pt;color:var(--paper)">Most schools give you<br>a classroom. We give<br>you a <em>film city</em>.</h2>
+    <p class="body" style="max-width:128mm;margin-top:6mm;font-size:9.4pt;color:var(--bone-dim)">A 30-acre campus of real, varied locations — glass-and-steel buildings, atriums, courtyards and grounds that become your sets — with edit &amp; DI suites and a Qube-equipped theatre. You don&rsquo;t simulate a production. You walk onto one.</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:5mm;margin-top:8mm">
+      <div style="border-top:.5mm solid var(--gold);padding-top:3mm"><div class="num" style="font-size:17pt;font-weight:700">30</div><div style="font-size:6.2pt;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft);margin-top:1mm">Acre campus</div></div>
+      <div style="border-top:.5mm solid var(--gold);padding-top:3mm"><div class="num" style="font-size:17pt;font-weight:700">Qube</div><div style="font-size:6.2pt;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft);margin-top:1mm">Equipped theatre</div></div>
+      <div style="border-top:.5mm solid var(--gold);padding-top:3mm"><div class="num" style="font-size:17pt;font-weight:700">Post</div><div style="font-size:6.2pt;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft);margin-top:1mm">&amp; DI suites on site</div></div>
+      <div style="border-top:.5mm solid var(--gold);padding-top:3mm"><div class="num" style="font-size:17pt;font-weight:700">Sets</div><div style="font-size:6.2pt;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft);margin-top:1mm">Across the campus</div></div>
+    </div>
+  </div>
+  <div class="foot"><span>QURA Film Academy</span><span>04 · Qura Film City</span><span class="pn num">17</span></div>
+</div>
+
+<!-- ══════════ 18 · FILM CITY MOSAIC ══════════ -->
+<div class="pg dark darkbg">
+  <div class="bg"></div>
+  <div class="pad">
+    <div class="eyebrow">04 · Walk the campus</div>
+    <h2 class="disp" style="font-size:26pt;margin:4.5mm 0 7mm">You don&rsquo;t simulate a production.<br>You <em>walk onto one</em>.</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:47mm;gap:3.5mm">
+      <div style="position:relative"><img src="assets/fc-glass.jpg" style="width:100%;height:100%;object-fit:cover"><div style="position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(10,10,11,.82));padding:6mm 4mm 3mm;font-size:6.4pt;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--paper)">The Glass Building</div></div>
+      <div style="position:relative"><img src="assets/fc-atrium.jpg" style="width:100%;height:100%;object-fit:cover"><div style="position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(10,10,11,.82));padding:6mm 4mm 3mm;font-size:6.4pt;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--paper)">Glass Atriums</div></div>
+      <div style="background:var(--gold);color:var(--black);padding:5mm;display:flex;flex-direction:column;justify-content:flex-end"><div style="font-family:'Cormorant Garamond',serif;font-size:14pt;font-weight:600;line-height:1.1">Real locations,<br>open to every student.</div><p style="font-size:7pt;line-height:1.5;margin-top:2mm;font-weight:500">The campus itself is your backlot — architecture, gardens and grounds that double as sets for almost any scene.</p></div>
+      <div style="background:var(--paper);color:var(--ink);padding:5mm;display:flex;flex-direction:column;justify-content:flex-end"><div style="font-family:'Cormorant Garamond',serif;font-size:14pt;font-weight:600;line-height:1.1">Premiere in<br>true cinema.</div><p style="font-size:7pt;line-height:1.5;margin-top:2mm;color:var(--ink-dim)">A Qube-equipped screening theatre — the same technology powering cinemas worldwide — plus edit, grade and DI suites on site.</p></div>
+      <div style="position:relative"><img src="assets/fc-avenue.jpg" style="width:100%;height:100%;object-fit:cover"><div style="position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(10,10,11,.82));padding:6mm 4mm 3mm;font-size:6.4pt;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--paper)">Tree-Lined Avenues</div></div>
+      <div style="position:relative"><img src="assets/fc-huts.jpg" style="width:100%;height:100%;object-fit:cover"><div style="position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(10,10,11,.82));padding:6mm 4mm 3mm;font-size:6.4pt;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--paper)">Cottages &amp; Standing Sets</div></div>
+      <div style="position:relative"><img src="assets/fc-garden.jpg" style="width:100%;height:100%;object-fit:cover"><div style="position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(10,10,11,.82));padding:6mm 4mm 3mm;font-size:6.4pt;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--paper)">Landscaped Gardens</div></div>
+      <div style="position:relative"><img src="assets/fc-cafe.jpg" style="width:100%;height:100%;object-fit:cover"><div style="position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(10,10,11,.82));padding:6mm 4mm 3mm;font-size:6.4pt;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--paper)">The Open-Air Café</div></div>
+      <div style="position:relative"><img src="assets/fc-sculpture.jpg" style="width:100%;height:100%;object-fit:cover"><div style="position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(10,10,11,.82));padding:6mm 4mm 3mm;font-size:6.4pt;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--paper)">Art &amp; Landmarks</div></div>
+    </div>
+    <p style="margin-top:5.5mm;font-size:7.6pt;color:var(--bone-dim);letter-spacing:.04em">The campus sits within the Rajalakshmi Group&rsquo;s NAAC A++ accredited institution — your certification carries the institutional weight of a respected university.</p>
+  </div>
+  <div class="foot"><span>QURA Film Academy</span><span>04 · Qura Film City</span><span class="pn num">18</span></div>
+</div>
+<!-- ══════════ 19 · CITY CAMPUS + LIVING ══════════ -->
+<div class="pg paperbg">
+  <div class="bg"></div>
+  <div class="pad" style="display:flex;flex-direction:column;justify-content:space-between">
+    <div class="eyebrow">Two campuses · One education</div>
+    <h2 class="disp" style="font-size:29pt;margin:6mm 0 10mm">Learn in the city.<br>Shoot at the <em>film city</em>.</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8mm">
+      <div>
+        <img src="prospectus-assets/rmz.webp" style="width:100%;height:68mm;object-fit:cover">
+        <div class="eyebrow" style="margin-top:4mm">The City Campus · Perungudi</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:15pt;font-weight:600;margin:1.8mm 0">Where theory lives.</div>
+        <p class="body" style="font-size:8.3pt">Your daily base for craft and theory — classrooms, edit suites, equipment rooms and screening rooms at RMZ Millennium Park, in the heart of Chennai&rsquo;s tech corridor, minutes from the industry.</p>
+        <p style="font-size:7pt;letter-spacing:.06em;color:var(--brasst);margin-top:2.5mm;color:var(--brass)">Rajalakshmi Engineering College Campus, RMZ Millennium Park, Perungudi, Chennai — 600 096</p>
+      </div>
+      <div>
+        <img src="assets/fc-academic.jpg" style="width:100%;height:68mm;object-fit:cover">
+        <div class="eyebrow" style="margin-top:4mm">Qura Film City · Thandalam</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:15pt;font-weight:600;margin:1.8mm 0">Where films get made.</div>
+        <p class="body" style="font-size:8.3pt">The 30-acre Rajalakshmi Engineering College campus — your backlot of glass architecture, courtyards, gardens and grounds, with post &amp; DI suites and the Qube-equipped theatre.</p>
+        <p style="font-size:7pt;letter-spacing:.06em;margin-top:2.5mm;color:var(--brass)">Rajalakshmi Engineering College, Rajalakshmi Nagar, Thandalam, Chennai — 602 105</p>
+      </div>
+    </div>
+    <div style="margin:11mm 0 10mm" class="strip"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8mm;align-items:stretch">
+      <div style="background:var(--black);color:var(--paper);padding:8.5mm 9mm">
+        <div class="eyebrow" style="color:var(--gold)">Living here</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:14.5pt;font-weight:600;margin:2mm 0">Settle in near campus.</div>
+        <p style="font-size:8.2pt;line-height:1.6;color:var(--bone-dim)">We don&rsquo;t run a hostel — but we care about your landing. Our team will help connect you with trusted paying-guest and apartment options near the RMZ city campus, so you live close to where you learn.</p>
+      </div>
+      <div style="background:var(--paper2);padding:8.5mm 9mm">
+        <div class="eyebrow">Come and see it</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:14.5pt;font-weight:600;margin:2mm 0">Visit before you decide.</div>
+        <p class="body" style="font-size:8.2pt">We encourage students and parents to walk both campuses before applying. Schedule a visit through our admissions team at <b>admissions@qurafilm.com</b> or via <b>qurafilm.com</b>.</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>QURA Film Academy</span><span>04 · The Campuses</span><span class="pn num">19</span></div>
+</div>
+
+<!-- ══════════ 20 · THE EXPERIENCE ══════════ -->
+<div class="pg dark darkbg">
+  <div class="bg"></div>
+  <div class="pad" style="display:flex;flex-direction:column;justify-content:space-between">
+    <div class="eyebrow">The Experience</div>
+    <h2 class="disp" style="font-size:32pt;margin:6mm 0 13mm">What it feels like<br>to study <em>here</em>.</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:11mm 11mm">
+      <div style="border-left:.7mm solid var(--gold);padding-left:5.5mm">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:16pt;font-weight:600">A limited cohort of 24</div>
+        <p style="font-size:8.8pt;line-height:1.66;color:var(--bone-dim);margin-top:2.2mm">Personalised mentorship and hands-on equipment access for everyone. A 1:3 faculty ratio means you are never lost in a crowd.</p>
+      </div>
+      <div style="border-left:.7mm solid var(--gold);padding-left:5.5mm">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:16pt;font-weight:600">A diverse cohort</div>
+        <p style="font-size:8.8pt;line-height:1.66;color:var(--bone-dim);margin-top:2.2mm">Fresh graduates and career-switchers. Engineers, writers, photographers and dreamers — a creative community that mirrors the real film industry.</p>
+      </div>
+      <div style="border-left:.7mm solid var(--gold);padding-left:5.5mm">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:16pt;font-weight:600">A balanced rhythm</div>
+        <p style="font-size:8.8pt;line-height:1.66;color:var(--bone-dim);margin-top:2.2mm">Theory mornings build film language and critical thinking. Practical afternoons put that knowledge to work immediately. Knowledge and craft, built together, daily.</p>
+      </div>
+      <div style="border-left:.7mm solid var(--gold);padding-left:5.5mm">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:16pt;font-weight:600">A level playing field</div>
+        <p style="font-size:8.8pt;line-height:1.66;color:var(--bone-dim);margin-top:2.2mm">All production costs are funded from fees. No student has a financial advantage on a shoot — films are judged on creative merit alone.</p>
+      </div>
+      <div style="border-left:.7mm solid var(--gold);padding-left:5.5mm">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:16pt;font-weight:600">Industry access</div>
+        <p style="font-size:8.8pt;line-height:1.66;color:var(--bone-dim);margin-top:2.2mm">Masterclasses by the advisory board. Guest lectures from working professionals. Internship pathways through Qube Cinema&rsquo;s global exhibition network.</p>
+      </div>
+      <div style="border-left:.7mm solid var(--gold);padding-left:5.5mm">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:16pt;font-weight:600">Festival promotion</div>
+        <p style="font-size:8.8pt;line-height:1.66;color:var(--bone-dim);margin-top:2.2mm">The best student films from each cohort are promoted and submitted to national and international festivals. Your thesis film is your calling card.</p>
+      </div>
+    </div>
+    <div style="margin-top:14mm;border:.35mm solid var(--gold-line);padding:7mm 8mm;display:flex;justify-content:space-between;align-items:baseline">
+      <span style="font-family:'Cormorant Garamond',serif;font-size:15.5pt;font-style:italic;color:var(--gold-soft)">Enter as a student. Leave as an auteur.</span>
+      <span class="eyebrow" style="color:var(--bone-dim)">Class of 2027</span>
+    </div>
+  </div>
+  <div class="foot"><span>QURA Film Academy</span><span>The Experience</span><span class="pn num">20</span></div>
+</div>
+
+<!-- ══════════ 21 · BREATHER — POST SUITE ══════════ -->
+<div class="pg dark">
+  <img class="full-img" src="prospectus-assets/atm-editor.png" alt="">
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,10,11,.78) 100%)"></div>
+  <div style="position:absolute;left:15mm;right:15mm;bottom:14mm">
+    <div class="strip" style="margin-bottom:5mm"></div>
+    <div style="display:flex;justify-content:space-between;align-items:baseline">
+      <span style="font-family:'Cormorant Garamond',serif;font-size:17pt;font-style:italic;color:var(--paper)">Post &amp; DI — where films are found.</span>
+      <span style="font-size:6.6pt;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)">Edit · Grade · Finish on site</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ 22 · SECTION 05 — THE OPPORTUNITY ══════════ -->
+<div class="pg dark darkbg">
+  <div class="bg"></div>
+  <div style="position:absolute;inset:0;background:radial-gradient(120mm 120mm at 85% 8%,rgba(123,47,190,.16),transparent 70%)"></div>
+  <div class="pad" style="display:flex;flex-direction:column;justify-content:space-between">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div class="chip purple">Section 05</div>
+      <div class="eyebrow" style="color:var(--bone-dim)">The Opportunity · Why now</div>
+    </div>
+    <h2 class="disp" style="font-size:33pt;margin:7mm 0 12mm">The industry is booming.<br>The <em>talent gap</em> isn&rsquo;t.</h2>
+    <div style="display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:6mm">
+      <div class="stat" style="box-shadow:3.2mm 3.2mm 0 rgba(123,47,190,.75)">
+        <div class="v num" style="font-size:26pt">$30B+</div>
+        <div class="l">India&rsquo;s M&amp;E industry by 2026</div>
+        <p style="font-size:7.4pt;line-height:1.5;color:var(--ink-dim);margin-top:2.4mm">Fuelled by OTT platforms, regional content and digital-first studios.<br><span style="font-size:6.2pt;letter-spacing:.08em;color:var(--brass)">Source: FICCI-EY Media &amp; Entertainment Report, 2026</span></p>
+      </div>
+      <div class="stat"><div class="v num" style="font-size:26pt">547M+</div><div class="l">Streaming viewers in India</div><p style="font-size:7.4pt;line-height:1.5;color:var(--ink-dim);margin-top:2.4mm">And climbing — an audience hungry for original content.</p></div>
+      <div class="stat"><div class="v num" style="font-size:26pt">30,000+</div><div class="l">Hours of content / year</div><p style="font-size:7.4pt;line-height:1.5;color:var(--ink-dim);margin-top:2.4mm">Commissioned across Indian OTT — needing trained professionals.</p></div>
+    </div>
+    <div style="margin-top:15mm" class="eyebrow">What structured training changes</div>
+    <div style="display:grid;grid-template-columns:1fr 14mm 1fr;gap:4mm;margin-top:6mm;align-items:stretch">
+      <div style="border:.35mm solid var(--hair-light);padding:5.5mm 6mm">
+        <div class="num" style="font-size:19pt;font-weight:700;color:var(--bone-dim)">₹1.5–3L</div>
+        <div style="font-size:6.6pt;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--bone-dim);margin-top:1.6mm">Per annum · Without structured training<br>Freelance / assistant roles</div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center"><span class="num" style="font-family:'Cormorant Garamond',serif;font-size:19pt;font-style:italic;color:var(--gold)">4×</span></div>
+      <div style="border:.35mm solid var(--gold);padding:5.5mm 6mm;background:rgba(200,162,75,.06)">
+        <div class="num" style="font-size:19pt;font-weight:700;color:var(--gold-soft)">₹6–12L</div>
+        <div style="font-size:6.6pt;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-soft);margin-top:1.6mm">Per annum · With industry-grade skills<br>Production houses · OTT · Ad agencies</div>
+      </div>
+    </div>
+    <div style="margin-top:14mm;border:.35mm solid var(--hair-light);padding:6.5mm 8mm">
+      <p style="font-size:9.6pt;line-height:1.65;color:var(--bone-dim);max-width:160mm">Nearly <b style="color:var(--paper)">80% of India&rsquo;s film workforce is freelance with no formal training.</b> Structured, every-craft education is your edge from day one — and your thesis film is your calling card.</p>
+    </div>
+  </div>
+  <div class="foot"><span>QURA Film Academy</span><span>05 · The Opportunity</span><span class="pn num">22</span></div>
+</div>
+
+<!-- ══════════ 23 · CAREER PATHWAYS ══════════ -->
+<div class="pg paperbg ticks">
+  <div class="bg"></div>
+  <div class="pad" style="display:flex;flex-direction:column;justify-content:space-between">
+    <div class="eyebrow">05 · Life after QURA</div>
+    <h2 class="disp" style="font-size:29pt;margin:6mm 0 10mm">Trained in every craft.<br>Employable in <em>every role</em>.</h2>
+    <table class="tbl">
+      <tr><th style="width:44mm">Career path</th><th>What you&rsquo;ll do</th></tr>
+      <tr><td><b>Film Direction</b></td><td>Direct feature films, short films and web series for theatrical and OTT release.</td></tr>
+      <tr><td><b>Cinematography</b></td><td>Work as Director of Photography on films, series, commercials and documentaries.</td></tr>
+      <tr><td><b>Editing &amp; Post-Production</b></td><td>Edit features, series and commercial content; colour grading and DI.</td></tr>
+      <tr><td><b>Documentary Filmmaking</b></td><td>Produce non-fiction for broadcasters, NGOs and streaming platforms.</td></tr>
+      <tr><td><b>Ad &amp; Corporate Films</b></td><td>Create commercials, brand films and corporate video for agencies and brands.</td></tr>
+      <tr><td style="border-bottom:.35mm solid var(--gold-line-dim)"><b>Content Creation</b></td><td style="border-bottom:.35mm solid var(--gold-line-dim)">Build an independent career as a digital content creator and visual storyteller.</td></tr>
+    </table>
+    <div style="margin-top:12mm;display:grid;grid-template-columns:1fr 1fr;gap:8mm">
+      <div style="background:var(--black);color:var(--paper);padding:9mm 9.5mm">
+        <div class="eyebrow" style="color:var(--gold)">Your industry network</div>
+        <p style="font-size:8.2pt;line-height:1.62;color:var(--bone-dim);margin-top:2.5mm">Through <b style="color:var(--paper)">Qube Cinema&rsquo;s</b> exhibition ecosystem — 7,000+ installations across 48 countries — and <b style="color:var(--paper)">LevelUp Learning&rsquo;s</b> community of 18,000+ filmmakers, QURA graduates gain internship opportunities, industry introductions and a professional network across every segment of Indian film.</p>
+      </div>
+      <div style="background:var(--paper2);padding:9mm 9.5mm">
+        <div class="eyebrow">Versatility is the edge</div>
+        <p class="body" style="font-size:8.2pt;margin-top:2.5mm">Because you&rsquo;re trained across every discipline, you can step between roles — direct one project, shoot the next, cut a third. In an industry that is 80% freelance, range is income.</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>QURA Film Academy</span><span>05 · Career Pathways</span><span class="pn num">23</span></div>
+</div>
+
+<!-- ══════════ 24 · PARTNERS ══════════ -->
+<div class="pg paperbg">
+  <div class="bg"></div>
+  <div class="pad" style="display:flex;flex-direction:column;justify-content:space-between">
+    <div class="eyebrow">A powerhouse partnership</div>
+    <h2 class="disp" style="font-size:29pt;margin:6mm 0 11mm">Industry. Academia.<br>Technology. <em>Pedagogy.</em></h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8mm">
+      <div style="border:.35mm solid var(--gold-line);padding:8.5mm;min-height:74mm">
+        <span style="display:inline-block;background:var(--black);padding:2.4mm 3.6mm"><img src="assets/qube.png" style="height:7.5mm" onerror="this.parentNode.style.display='none'"></span>
+        <div class="eyebrow" style="margin-top:4mm">Technology &amp; Industry</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:16pt;font-weight:600;margin:1.6mm 0">Qube Cinema</div>
+        <p class="body" style="font-size:8.2pt">Pioneer in digital cinema — 7,000+ installations across 48 countries. Brings equipment access, screening facilities, an industry network across the exhibition ecosystem, and internship pathways for graduates.</p>
+      </div>
+      <div style="border:.35mm solid var(--gold-line);padding:8.5mm;min-height:74mm">
+        <img src="prospectus-assets/logo-rajalakshmi.webp" style="height:10mm" onerror="this.style.display='none'">
+        <div class="eyebrow" style="margin-top:4mm">Academic &amp; Infrastructure</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:16pt;font-weight:600;margin:1.6mm 0">Rajalakshmi Institutions</div>
+        <p class="body" style="font-size:8.2pt">NAAC A++ accredited, affiliated to Anna University. Provides the City Campus at RMZ Millennium Park and the 30-acre Thandalam film city — and awards your Certificate in Filmmaking.</p>
+      </div>
+      <div style="border:.35mm solid var(--gold-line);padding:8.5mm;min-height:74mm">
+        <img src="assets/levelup.png" style="height:10mm" onerror="this.style.display='none'">
+        <div class="eyebrow" style="margin-top:4mm">Marketing &amp; Curriculum</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:16pt;font-weight:600;margin:1.6mm 0">LevelUp Learning</div>
+        <p class="body" style="font-size:8.2pt">India&rsquo;s leading filmmaking education platform, with a community of 18,000+ learners and filmmakers. Drives admissions, industry engagement and the advisory board.</p>
+      </div>
+      <div style="border:.35mm solid var(--gold-line);padding:8.5mm;background:var(--black);color:var(--paper);min-height:74mm">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:11pt;font-style:italic;color:var(--gold-soft)">The Brain Behind QURA</div>
+        <div class="eyebrow" style="margin-top:3mm;color:var(--gold)">Academic Head &amp; Curriculum Designer</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:16pt;font-weight:600;margin:1.6mm 0">Lata Murugan</div>
+        <p style="font-size:8.2pt;line-height:1.6;color:var(--bone-dim)">Twenty years of film education across India, the US and Southern Africa. Former Head of Direction, L.V. Prasad Film &amp; TV Academy. Designed every aspect of the QURA curriculum from first principles.</p>
+      </div>
+    </div>
+    <div style="margin-top:12mm;display:flex;justify-content:space-between;align-items:baseline;border-top:.35mm solid var(--gold-line-dim);padding-top:5mm">
+      <span style="font-family:'Cormorant Garamond',serif;font-size:14.5pt;font-style:italic;color:var(--ink)">Four partners. One mission — make world-class film education accessible.</span>
+      <span class="eyebrow">Est. 2026 · Chennai</span>
+    </div>
+  </div>
+  <div class="foot"><span>QURA Film Academy</span><span>The Partnership</span><span class="pn num">24</span></div>
+</div>
+<!-- ══════════ 25 · SECTION 06 — FEES ══════════ -->
+<div class="pg paperbg">
+  <div class="bg"></div>
+  <div class="pad">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div class="chip">Section 06</div>
+      <div class="eyebrow">Fees &amp; Finances · Class of 2027</div>
+    </div>
+    <h2 class="disp" style="font-size:27pt;margin:5.5mm 0 3.5mm">Accessible <em>excellence</em>.</h2>
+    <p class="body" style="max-width:150mm;margin-bottom:6.5mm">Transparent and all-inclusive of equipment and campus production resources — built so that talent, not budget, decides who becomes a filmmaker.</p>
+    <div style="display:grid;grid-template-columns:1.15fr 1fr;gap:9mm">
+      <div>
+        <table class="tbl">
+          <tr><th>Component</th><th style="text-align:right">Amount</th></tr>
+          <tr><td>Tuition &amp; Instruction</td><td class="r num">₹3,50,000</td></tr>
+          <tr><td>Equipment &amp; Lab Access</td><td class="r num">₹80,000</td></tr>
+          <tr><td>Production Fund — all 6 film projects</td><td class="r num">₹80,000</td></tr>
+          <tr><td>Examination &amp; Certification</td><td class="r num">₹20,000</td></tr>
+          <tr><td>Library &amp; Learning Resources</td><td class="r num">₹20,000</td></tr>
+          <tr><td style="border-top:.6mm solid var(--ink)"><b>Total Programme Fee</b></td><td class="r num" style="border-top:.6mm solid var(--ink);font-size:11pt"><b>₹5,50,000</b></td></tr>
+          <tr><td>Refundable caution deposit</td><td class="r num">₹25,000</td></tr>
+          <tr><td style="border-bottom:.35mm solid var(--gold-line-dim)">Application fee — one-time, at apply</td><td class="r num" style="border-bottom:.35mm solid var(--gold-line-dim)">₹1,000</td></tr>
+        </table>
+        <div style="margin-top:5.5mm;background:var(--black);color:var(--paper);padding:5.5mm 6.5mm">
+          <div class="eyebrow" style="color:var(--gold)">Installment plan</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:5mm;margin-top:3mm">
+            <div><div class="num" style="font-size:15pt;font-weight:700">₹2,75,000</div><div style="font-size:6.4pt;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--bone-dim);margin-top:1.2mm">1st — at admission</div></div>
+            <div><div class="num" style="font-size:15pt;font-weight:700">₹2,75,000</div><div style="font-size:6.4pt;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--bone-dim);margin-top:1.2mm">2nd — mid-programme</div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow">What your fee includes</div>
+        <div style="font-size:8.2pt;line-height:2.05;color:var(--ink-dim);margin-top:2.5mm">
+          <div><span class="gold">✓</span>&nbsp; Cameras, lenses, lighting &amp; sound equipment</div>
+          <div><span class="gold">✓</span>&nbsp; Editing suites &amp; post-production facilities</div>
+          <div><span class="gold">✓</span>&nbsp; Qube-equipped screening theatre access</div>
+          <div><span class="gold">✓</span>&nbsp; Production fund covering all 6 films</div>
+          <div><span class="gold">✓</span>&nbsp; Certificate in Filmmaking — Rajalakshmi Engineering College</div>
+          <div><span class="gold">✓</span>&nbsp; Festival submission support for best films</div>
+          <div><span class="gold">✓</span>&nbsp; Industry masterclasses &amp; guest lectures</div>
+          <div><span class="gold">✓</span>&nbsp; Access to Qube Cinema&rsquo;s internship network</div>
+        </div>
+        <div style="margin-top:5mm;border:.35mm solid var(--gold-line);padding:4.5mm 5.5mm">
+          <div class="eyebrow">The value equation</div>
+          <p class="body" style="font-size:8pt;margin-top:2mm">Comparable leading film programmes in India cost <b>₹13–27 lakhs</b>, with production costs charged on top. QURA is ₹5.5 lakhs, production included.</p>
+        </div>
+        <div style="margin-top:4.5mm;border:.35mm solid var(--gold-line);padding:4.5mm 5.5mm">
+          <div class="eyebrow">Scholarships &amp; loans</div>
+          <p class="body" style="font-size:8pt;margin-top:2mm">A limited number of scholarships are available, subject to eligibility — indicate your interest in the application. As a certified programme of a NAAC A++ institution, students may be eligible for education loans from leading banks.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>QURA Film Academy</span><span>06 · Fees &amp; Admissions</span><span class="pn num">25</span></div>
+</div>
+
+<!-- ══════════ 26 · ADMISSIONS ══════════ -->
+<div class="pg paperbg ticks">
+  <div class="bg"></div>
+  <div class="pad">
+    <div class="eyebrow">06 · Admissions · Class of 2027</div>
+    <h2 class="disp" style="font-size:27pt;margin:5mm 0 3.5mm">Four steps to the <em>cohort</em>.</h2>
+    <p class="body" style="max-width:150mm;margin-bottom:6mm">A short, honest application. We read every one. Talent and point of view decide — not pedigree.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5mm 8mm">
+      <div style="display:grid;grid-template-columns:14mm 1fr;gap:4mm;border-top:.35mm solid var(--gold-line-dim);padding-top:3.5mm">
+        <div class="num" style="font-size:16pt;font-weight:700;color:var(--gold)">01</div>
+        <div><b style="font-size:9.5pt">Apply online</b><p class="body" style="font-size:8pt;margin-top:1.2mm">Tell us who you are and why film. Takes about ten minutes at qurafilm.com. Application fee ₹1,000.</p></div>
+      </div>
+      <div style="display:grid;grid-template-columns:14mm 1fr;gap:4mm;border-top:.35mm solid var(--gold-line-dim);padding-top:3.5mm">
+        <div class="num" style="font-size:16pt;font-weight:700;color:var(--gold)">02</div>
+        <div><b style="font-size:9.5pt">Portfolio &amp; statement</b><p class="body" style="font-size:8pt;margin-top:1.2mm">Share anything you&rsquo;ve made — a phone film, photos, writing — and a short statement of intent. No prior work? Tell us what you&rsquo;d make.</p></div>
+      </div>
+      <div style="display:grid;grid-template-columns:14mm 1fr;gap:4mm;border-top:.35mm solid var(--gold-line-dim);padding-top:3.5mm">
+        <div class="num" style="font-size:16pt;font-weight:700;color:var(--gold)">03</div>
+        <div><b style="font-size:9.5pt">Conversation</b><p class="body" style="font-size:8pt;margin-top:1.2mm">A relaxed interview with our faculty to understand your goals — and answer your questions.</p></div>
+      </div>
+      <div style="display:grid;grid-template-columns:14mm 1fr;gap:4mm;border-top:.35mm solid var(--gold-line-dim);padding-top:3.5mm">
+        <div class="num" style="font-size:16pt;font-weight:700;color:var(--gold)">04</div>
+        <div><b style="font-size:9.5pt">Offer &amp; enrolment</b><p class="body" style="font-size:8pt;margin-top:1.2mm">Receive your decision, confirm your seat, and choose an installment plan. The January 2027 batch begins.</p></div>
+      </div>
+    </div>
+    <div style="margin:7mm 0 6mm" class="strip"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8mm">
+      <div>
+        <div class="eyebrow">Who we&rsquo;re looking for</div>
+        <div style="font-size:8.4pt;line-height:1.75;color:var(--ink-dim);margin-top:2.5mm">
+          <p><b style="color:var(--ink)">18 and above.</b> A bachelor&rsquo;s degree is welcomed but not required — we admit on passion and potential, not pedigree.</p>
+          <p style="margin-top:2mm"><b style="color:var(--ink)">A point of view.</b> People who can&rsquo;t stop thinking about film — and have something they want to say with it.</p>
+          <p style="margin-top:2mm"><b style="color:var(--ink)">Commitment.</b> A full-time, on-campus programme in Chennai. You&rsquo;ll live and breathe filmmaking for eleven months.</p>
+        </div>
+        <div style="margin-top:5mm;background:var(--paper2);padding:4.5mm 5.5mm">
+          <div class="eyebrow">No film background?</div>
+          <p class="body" style="font-size:8pt;margin-top:1.6mm">Many of our strongest applicants come in self-taught — a phone, a DSLR, an obsession. We teach the craft from foundations up.</p>
+        </div>
+      </div>
+      <div>
+        <div style="background:var(--black);color:var(--paper);padding:6.5mm 7mm">
+          <div class="eyebrow" style="color:var(--gold)">Important dates</div>
+          <div style="margin-top:3.5mm">
+            <div style="display:flex;justify-content:space-between;padding:2.6mm 0;border-top:.35mm solid var(--hair-light);font-size:8.6pt"><span style="color:var(--bone-dim)">Applications open</span><b>Now</b></div>
+            <div style="display:flex;justify-content:space-between;padding:2.6mm 0;border-top:.35mm solid var(--hair-light);font-size:8.6pt"><span style="color:var(--bone-dim)">Applications close</span><b class="num">November 30, 2026*</b></div>
+            <div style="display:flex;justify-content:space-between;padding:2.6mm 0;border-top:.35mm solid var(--hair-light);border-bottom:.35mm solid var(--hair-light);font-size:8.6pt"><span style="color:var(--bone-dim)">Batch begins</span><b class="num">January 2027</b></div>
+          </div>
+          <p style="font-size:6.6pt;color:var(--bone-dim);margin-top:2.6mm;letter-spacing:.04em">*Or once the cohort of 24 is full — whichever is earlier.</p>
+        </div>
+        <div style="margin-top:5mm;border:.35mm solid var(--gold-line);padding:4.5mm 5.5mm">
+          <div class="eyebrow">What you graduate with</div>
+          <p class="body" style="font-size:8pt;margin-top:1.6mm">A portfolio of six completed films, a Certificate in Filmmaking from Rajalakshmi Engineering College (NAAC A++), a network of industry mentors — and the all-round command to work on any set.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>QURA Film Academy</span><span>06 · Fees &amp; Admissions</span><span class="pn num">26</span></div>
+</div>
+
+<!-- ══════════ 27 · BACK COVER ══════════ -->
+<div class="pg dark">
+  <img class="full-img" src="prospectus-assets/atm-projector.png" alt="" style="opacity:.5">
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,11,.55) 0%,rgba(10,10,11,.35) 45%,rgba(10,10,11,.92) 100%)"></div>
+  <div class="pad" style="display:flex;flex-direction:column">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <img src="prospectus-assets/logo.webp" alt="QURA" style="height:12mm" onerror="this.style.display='none'">
+      <div class="eyebrow" style="color:var(--gold-soft)">Class of 2027</div>
+    </div>
+    <div style="flex:1"></div>
+    <h2 class="disp" style="font-size:42pt;color:var(--paper)">Enter as a student.<br>Leave as an <em>auteur</em>.</h2>
+    <p class="body" style="max-width:120mm;margin-top:6mm;font-size:9.5pt;color:var(--bone-dim)">Applications for the January 2027 batch are open. Twenty-four seats. Applications close November 30, 2026 — or once the cohort is full.</p>
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-top:10mm">
+      <div>
+        <div class="eyebrow" style="color:var(--gold)">Begin your application</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:19pt;font-weight:600;color:var(--paper);margin-top:2mm">qurafilm.com<span style="color:var(--gold)">/apply</span></div>
+        <div style="font-size:8pt;color:var(--bone-dim);margin-top:2.5mm;line-height:1.8">admissions@qurafilm.com<br>City Campus — RMZ Millennium Park, Perungudi, Chennai 600 096<br>Qura Film City — REC Thandalam, Chennai 602 105</div>
+      </div>
+      <div style="text-align:center">
+        <img src="prospectus-assets/qr-apply.svg" style="width:26mm;height:26mm;background:#fff;padding:2mm" onerror="this.style.display='none'">
+        <div style="font-size:6.2pt;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:2mm">Scan to apply</div>
+      </div>
+    </div>
+    <div style="margin-top:9mm" class="strip"></div>
+    <div style="display:flex;justify-content:space-between;margin-top:4mm;font-size:6.4pt;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--bone-dim)">
+      <span>© 2026 QURA Film Academy · LevelUp Learning · Qube Cinema · Rajalakshmi</span>
+      <span>Prospectus 2026–27</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

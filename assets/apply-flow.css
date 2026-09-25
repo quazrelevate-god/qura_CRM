@@ -1,0 +1,174 @@
+/* QURA Film Academy — multi-page application flow (dark cinematic). v2
+   Image LEFT, form RIGHT. Fits standard/Windows browser windows (image sticky
+   full-height with visible caption; form scrolls the page). Welcome = full-screen
+   film-poster marquee. Advisory shown as small portrait cards. */
+:root{
+  --qf-black:#0A0A0B; --qf-panel:#111015; --qf-ink:#F4F1EA; --qf-dim:#B9B4A8;
+  --qf-line:rgba(244,241,234,.14); --qf-purple:#7B2FBE; --qf-purple-soft:#A56BE0; --qf-gold:#C9A6EE;
+  --qf-serif:'Cormorant Garamond','Georgia',serif;
+  --qf-sans:'Inter',-apple-system,'Helvetica Neue',Arial,sans-serif;
+  --qf-ease:cubic-bezier(.16,.7,.2,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--qf-black);color:var(--qf-ink);font-family:var(--qf-sans);line-height:1.55;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+
+/* ---------- split layout: media LEFT, form RIGHT ---------- */
+.qaf2{min-height:100vh;min-height:100dvh;display:grid;grid-template-columns:1fr}
+@media(min-width:900px){.qaf2{grid-template-columns:1.05fr 1fr;align-items:start}}
+.qaf2-media{order:1;position:relative;overflow:hidden;background:#000;min-height:34vh}
+@media(min-width:900px){.qaf2-media{position:sticky;top:0;height:100vh;min-height:100vh}}
+.qaf2-form{order:2;display:flex;flex-direction:column;justify-content:center;padding:26px 22px 44px;min-height:auto}
+@media(min-width:900px){.qaf2-form{min-height:100vh;padding:48px 6vw;max-width:680px;width:100%}}
+
+/* image slides */
+.qaf2-media .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1s var(--qf-ease)}
+.qaf2-media .slide.on{opacity:1}
+.qaf2-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,11,.2),rgba(10,10,11,.78));z-index:1}
+.qaf2-cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:30px 34px 32px}
+.qaf2-cap .ey{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--qf-purple-soft)}
+.qaf2-cap .q{font-family:var(--qf-serif);font-weight:600;font-size:clamp(20px,2.2vw,32px);line-height:1.15;margin-top:8px;max-width:24ch}
+@media(max-width:899px){.qaf2-cap{padding:16px 20px 18px}.qaf2-cap .q{font-size:19px}}
+
+/* ---------- advisory portrait-card slider ---------- */
+.qaf2-media.portrait{background:radial-gradient(120% 90% at 30% 20%,#1a1622,#0A0A0B)}
+.qaf2-media.portrait::after{display:none}
+.qaf2-pcard-wrap{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;padding:24px}
+.qaf2-pcard{position:absolute;width:min(300px,74%);opacity:0;transform:translateY(14px) scale(.98);transition:opacity .7s var(--qf-ease),transform .7s var(--qf-ease);text-align:center}
+.qaf2-pcard.on{opacity:1;transform:none;position:relative}
+.qaf2-pcard .ph{width:100%;overflow:hidden;border-radius:14px;border:1px solid var(--qf-line);box-shadow:0 24px 60px rgba(0,0,0,.5);background:#0f0f11}
+.qaf2-pcard .ph img{width:100%;height:auto;max-height:58vh;object-fit:contain;display:block}
+.qaf2-pcard .nm{font-family:var(--qf-serif);font-size:24px;font-weight:600;margin-top:16px}
+.qaf2-pcard .rl{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--qf-purple-soft);margin-top:5px}
+.qaf2-pcard .cd{font-size:12px;color:var(--qf-dim);margin-top:7px;line-height:1.45;max-width:34ch;margin-left:auto;margin-right:auto}
+.qaf2-media.portrait .qaf2-cap{background:linear-gradient(180deg,transparent,rgba(10,10,11,.6))}
+
+/* ---------- form side ---------- */
+.qaf2-top{margin-bottom:28px}
+.qaf2-logo{font-family:var(--qf-serif);font-weight:700;font-size:20px;letter-spacing:.02em;text-decoration:none}
+.qaf2-progress{margin-top:18px;display:flex;align-items:center;gap:12px}
+.qaf2-bar{flex:1;height:3px;background:rgba(244,241,234,.14);overflow:hidden;border-radius:2px}
+.qaf2-bar-fill{display:block;height:100%;width:25%;background:var(--qf-purple);transition:width .5s var(--qf-ease)}
+.qaf2-steplabel{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--qf-dim);white-space:nowrap}
+
+.qaf2-eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--qf-purple-soft)}
+.qaf2-h{font-family:var(--qf-serif);font-weight:600;font-size:clamp(28px,4.4vw,44px);line-height:1.08;letter-spacing:-.01em;margin:10px 0 6px}
+.qaf2-sub{color:var(--qf-dim);font-size:15px;margin-bottom:26px;max-width:52ch}
+
+.qaf2-fld{margin-bottom:20px}
+.qaf2-fld>label{display:block;font-size:14px;font-weight:600;margin-bottom:9px;line-height:1.45}
+.qaf2-fld>label .brk{font-weight:400;color:var(--qf-dim)}
+.qaf2-help{font-size:12.5px;color:var(--qf-dim);margin:-3px 0 9px}
+.qaf2-fld input[type=text],.qaf2-fld input[type=email],.qaf2-fld input[type=tel],.qaf2-fld input[type=url],.qaf2-fld select,.qaf2-fld textarea{
+  width:100%;font-family:var(--qf-sans);font-size:16px;color:var(--qf-ink);background:var(--qf-panel);
+  border:1px solid var(--qf-line);padding:14px 15px;border-radius:10px;-webkit-appearance:none;appearance:none;transition:border-color .2s,box-shadow .2s}
+.qaf2-fld textarea{resize:vertical;min-height:130px;line-height:1.5}
+.qaf2-fld select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23B9B4A8' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 15px center;padding-right:40px}
+.qaf2-fld input::placeholder,.qaf2-fld textarea::placeholder{color:#6f6a60}
+.qaf2-fld input:focus,.qaf2-fld select:focus,.qaf2-fld textarea:focus{outline:none;border-color:var(--qf-purple);box-shadow:0 0 0 3px rgba(123,47,190,.28)}
+
+.qaf2-phone{display:flex}
+.qaf2-prefix{display:inline-flex;align-items:center;padding:0 14px;font-size:16px;font-weight:600;color:var(--qf-dim);background:#17151c;border:1px solid var(--qf-line);border-right:0;border-radius:10px 0 0 10px}
+.qaf2-phone input{border-radius:0 10px 10px 0}
+.qaf2-count{font-size:12px;color:var(--qf-dim);margin-top:6px;text-align:right;font-variant-numeric:tabular-nums}
+
+/* option cards */
+.qaf2-cards{display:grid;grid-template-columns:1fr;gap:10px}
+@media(min-width:560px){.qaf2-cards{grid-template-columns:1fr 1fr}}
+.qaf2-card{position:relative;display:flex;align-items:center;min-height:56px;padding:14px 16px;border:1px solid var(--qf-line);background:var(--qf-panel);border-radius:12px;cursor:pointer;transition:.18s var(--qf-ease)}
+.qaf2-card:hover{border-color:var(--qf-purple-soft);transform:translateY(-1px)}
+.qaf2-card input{position:absolute;opacity:0;pointer-events:none}
+.qaf2-card-t{font-size:14.5px;line-height:1.35}
+.qaf2-card:has(input:checked){border-color:var(--qf-purple);background:rgba(123,47,190,.18);box-shadow:inset 0 0 0 1px var(--qf-purple)}
+.qaf2-card:has(input:checked) .qaf2-card-t{font-weight:600}
+
+/* "Other" reveal box */
+.qaf2-other{margin-top:10px}
+.qaf2-other[hidden]{display:none}
+
+.qaf2-note{background:rgba(123,47,190,.14);border:1px solid rgba(123,47,190,.4);border-left:3px solid var(--qf-purple);border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.55;margin-bottom:24px}
+
+/* consent — force flex, override the generic label rule */
+.qaf2-fld>label.qaf2-check{display:flex;align-items:flex-start;gap:11px;font-size:13.5px;line-height:1.5;color:var(--qf-dim);cursor:pointer;font-weight:400;margin-bottom:0}
+.qaf2-check input{width:20px;height:20px;margin-top:1px;flex:0 0 auto;accent-color:var(--qf-purple)}
+.qaf2-check span{flex:1}
+.qaf2-check a{color:var(--qf-purple-soft);text-decoration:underline}
+
+.qaf2-err{color:#ff8a8a;font-size:12.5px;margin-top:6px}
+.qaf2-fld.has-err input,.qaf2-fld.has-err select,.qaf2-fld.has-err textarea{border-color:#ff8a8a}
+.qaf2-fld.has-err .qaf2-cards{outline:1px solid rgba(255,138,138,.5);outline-offset:5px;border-radius:12px}
+.qaf2-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* nav / buttons */
+.qaf2-nav{display:flex;align-items:center;gap:14px;margin-top:30px}
+.qaf2-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--qf-sans);font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;padding:15px 28px;border-radius:10px;cursor:pointer;border:1px solid transparent;transition:.25s var(--qf-ease);text-decoration:none}
+.qaf2-btn.primary{background:var(--qf-purple);color:#fff;margin-left:auto}
+.qaf2-btn.primary:hover{background:var(--qf-purple-soft)}
+.qaf2-btn.primary[disabled]{opacity:.55;cursor:default}
+.qaf2-btn.ghost{background:transparent;color:var(--qf-dim);border-color:var(--qf-line)}
+.qaf2-btn.ghost:hover{color:var(--qf-ink);border-color:var(--qf-dim)}
+
+/* submitted */
+.qaf2-done{display:flex;flex-direction:column;justify-content:center}
+.qaf2-done .ico{width:56px;height:56px;line-height:56px;text-align:center;border-radius:50%;background:rgba(123,47,190,.2);color:var(--qf-purple-soft);font-size:26px;margin-bottom:20px}
+.qaf2-done h1{font-family:var(--qf-serif);font-weight:600;font-size:clamp(30px,5vw,52px);line-height:1.08;margin-bottom:14px}
+.qaf2-done p{color:var(--qf-dim);font-size:16px;line-height:1.7;max-width:48ch;margin-bottom:26px}
+.qaf2-done .row{display:flex;gap:14px;flex-wrap:wrap}
+.qaf2-done .small{font-size:12.5px;color:var(--qf-dim);margin-top:16px}
+
+/* =================== WELCOME (full-screen film-poster marquee) =================== */
+.qwelcome{position:relative;min-height:100vh;min-height:100dvh;overflow:hidden;display:flex;align-items:center}
+.qwelcome .qw-content{position:relative;z-index:3;max-width:640px;padding:40px 6vw;width:100%}
+.qw-overlay{position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,rgba(10,10,11,.94) 0%,rgba(10,10,11,.82) 42%,rgba(10,10,11,.45) 72%,rgba(10,10,11,.25) 100%)}
+@media(max-width:899px){.qw-overlay{background:linear-gradient(180deg,rgba(10,10,11,.55) 0%,rgba(10,10,11,.85) 60%,rgba(10,10,11,.95) 100%)}}
+.qw-content .lede{color:var(--qf-dim);font-size:17px;line-height:1.7;max-width:44ch;margin:16px 0 6px}
+.qw-meta{display:flex;gap:26px;margin:26px 0 8px;flex-wrap:wrap}
+.qw-meta .n{font-family:var(--qf-serif);font-size:26px;font-weight:600;display:block}
+.qw-meta .l{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--qf-dim);margin-top:2px;display:block}
+
+/* marquee (ported from site.css, dark) */
+.marquee-sec{position:absolute;inset:0;z-index:0;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:16px;background:#000}
+.mrow{display:flex;gap:14px;width:max-content}
+.mrow.left{animation:qfScrollLeft 45s linear infinite}
+.mrow.right{animation:qfScrollRight 50s linear infinite}
+.mrow.left.slow{animation-duration:42s}
+@keyframes qfScrollLeft{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes qfScrollRight{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.fcard{position:relative;flex:0 0 auto;width:200px;aspect-ratio:2/3;overflow:hidden;border:1px solid var(--qf-line);border-radius:6px}
+.fcard img{width:100%;height:100%;object-fit:cover;filter:grayscale(.5) brightness(.72)}
+.fcard .ov{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:16px 14px;background:linear-gradient(180deg,transparent 40%,rgba(10,10,11,.85))}
+.fcard .tag{font-family:var(--qf-sans);text-transform:uppercase;letter-spacing:.05em;font-size:8.5px;font-weight:700;color:var(--qf-gold)}
+.fcard .proj{font-family:var(--qf-serif);font-size:19px;line-height:1.05;margin:4px 0 2px}
+.fcard .yr{font-size:11px;color:var(--qf-dim)}
+.fcard .cr{margin-top:9px;padding-top:8px;border-top:1px solid rgba(244,241,234,.15)}
+.fcard .nm{font-size:12px;font-weight:500}
+.fcard .rl{font-family:var(--qf-sans);text-transform:uppercase;letter-spacing:.05em;font-size:9px;color:var(--qf-purple-soft);margin-top:2px}
+@media(max-width:680px){.fcard{width:150px}}
+@media(prefers-reduced-motion:reduce){.mrow{animation:none!important}}
+
+/* highlighted numerals in captions */
+.qaf2-cap .q .hl{color:var(--qf-purple-soft);font-style:normal}
+
+/* =================== STORY: cinema "written & directed by you" scene =================== */
+.qaf2-theatre{background:radial-gradient(120% 80% at 50% 0%,#14101c 0%,#0A0A0B 60%)}
+.qaf2-theatre::after{display:none}
+.th-beam{position:absolute;top:-8%;left:50%;transform:translateX(-50%);width:78%;height:70%;z-index:1;
+  background:radial-gradient(60% 70% at 50% 0%,rgba(201,166,238,.16),transparent 70%);filter:blur(6px);pointer-events:none}
+.th-screen{position:absolute;z-index:2;top:16%;left:50%;transform:translateX(-50%);width:74%;max-width:460px;aspect-ratio:16/9;
+  background:linear-gradient(180deg,#151019,#0e0b12);border:1px solid rgba(201,166,238,.28);border-radius:6px;
+  box-shadow:0 0 90px rgba(123,47,190,.35),0 30px 80px rgba(0,0,0,.6);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:18px}
+.th-screen .th-k{font-family:var(--qf-sans);font-size:10px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:var(--qf-dim)}
+.th-screen .th-name{font-family:var(--qf-serif);font-weight:600;font-size:clamp(30px,5vw,52px);line-height:1;margin:8px 0 12px;color:#fff;text-shadow:0 0 24px rgba(201,166,238,.5)}
+.th-screen .th-cr{font-family:var(--qf-sans);font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--qf-purple-soft)}
+/* seat rows silhouette */
+.th-seats{position:absolute;left:0;right:0;bottom:0;height:30%;z-index:3;pointer-events:none;
+  background:linear-gradient(180deg,transparent,rgba(10,10,11,.9) 55%,#0A0A0B),
+    repeating-linear-gradient(90deg,rgba(0,0,0,.55) 0 46px,transparent 46px 54px)}
+/* seated viewer silhouette */
+.th-figure{position:absolute;z-index:4;bottom:2%;left:50%;transform:translateX(-50%);width:120px;height:150px;pointer-events:none}
+.th-figure::before{content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:118px;height:96px;background:#050506;border-radius:60px 60px 0 0}
+.th-figure::after{content:"";position:absolute;bottom:86px;left:50%;transform:translateX(-50%);width:58px;height:62px;background:#050506;border-radius:50%}
+.qaf2-theatre .qaf2-cap{z-index:5;background:linear-gradient(180deg,transparent,rgba(10,10,11,.55))}
