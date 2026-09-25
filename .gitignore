@@ -2,3 +2,9 @@ node_modules
 .vercel
 .env
 .DS_Store
+crm/node_modules/
+crm/.next/
+crm/.vercel/
+crm/.env
+crm/.env.local
+crm/.env*.local
